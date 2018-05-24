@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IPv6 Hitlist: Interactive Zesplots </title>
+</head>
+<body>
+    <center><h1>IPv6 Hitlist: Interactive Zesplots</h1>
+	<pre>
+	Disclaimer: The interactive versions of these plots are quite heavy on the browser.
+	Some plots are limited in the number of prefixes visualized to improve the experience.
+	</pre>
+	<a href="#input">Input set</a>
+	|
+	<a href="#apd">Aliased Prefix Detection</a>
+	|
+	<a href="#responses">Responses</a>
+	|
+	<a href="#clusters">Clustered fingerprints</a>
+<hr>
+
+    <h3 id="input">The input set within all announced BGP prefixes</h3>
+	<a target="_blank" href="zesplot-overview-input.html">interactive version</a><br/>
+    <img src="zesplot-overview-input-crop.png" width="80%"/>
+
+<hr>
+
+    <h3 id="apd">Aliased Prefix Detection</h3>
+	<h4>Without Aliased Prefixes filtered</h4>
+	<a target="_blank" href="zesplot-apd-pre.html">interactive version</a><br/>
+    <img src="zesplot-apd-pre-crop.png" width="80%"/>
+
+	<h4 id="apd2">Detected Aliased Prefixes</h4>
+	<a target="_blank" href="zesplot-apd-post.html">interactive version</a><br/>
+    <img src="zesplot-apd-post-crop.png" width="80%"/>
+
+<hr>
+
+    <h3 id="responses">ICMP Echo responses within all announced BGP prefixes</h3>
+	<a target="_blank" href="zesplot-probing-responses.html">interactive version</a><br/>
+    <img src="zesplot-probing-responses-crop.png" width="80%"/>
+
+<hr>
+
+    <h3 id="clusters">All announced BGP prefixes colored by cluster</h3>
+	<a target="_blank" href="zesplot-clusters-full-unsized.html">interactive version</a><br/>
+    <img src="zesplot-clusters-full-unsized-crop.png" width="80%"/>
+
+</body>
+</html>
