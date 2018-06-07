@@ -70,7 +70,33 @@ body {
       <div class="col-md-10 col-md-offset-1">
 
         <div class="page-header">
-	<h2 id="about">About this Study</h2>
+
+	<h2>Clusters in the Expanse:
+	Understanding and Unbiasing IPv6 Hitlists</h2>
+	<i>Oliver Gasser, Quirin Scheitle, Paweł Foremski, Qasim Lone,
+	Maciej Korczyński, Stephen D. Strowes, Luuk Hendriks, Georg Carle</i>
+	<br><br>
+
+	<b>Abstract.</b> Network measurements are an important tool in understanding the Internet. Due
+	to the expanse of the IPv6 address space, exhaustive scans as in IPv4 are not possible for IPv6.
+	In recent years, several studies proposed to use target lists of IPv6 addresses, called
+	hitlists.<br>
+	In this paper, we show that addresses in IPv6 hitlists are heavily clustered. We present novel
+	techniques that allow to push IPv6 hitlists from quantity to quality. We perform a longitudinal
+	active measurement study over 6 months, targeting more than 50 M addresses. We develop a
+	rigorous method to detect aliased prefixes, which identifies 1.5 % of our prefixes as aliased,
+	pertaining to about half of our target addresses. Using entropy clustering, we group the entire
+	hitlist into just 6 distinct addressing schemes. Furthermore, we perform client measurements by
+	leveraging crowdsourcing.<br>
+	To encourage reproducibility in network measurement research and serve as a starting point for
+	future IPv6 studies, we publish source code, analysis tools, and data.
+	<br><br>
+
+	<b>Pre-print.</b> Read the pre-print of our paper at arXiv.org:
+	<b><a href="https://arxiv.org/abs/1806.01633">[abstract]</a></b> and
+	<b><a href="https://arxiv.org/pdf/1806.01633.pdf">[PDF]</a></b>.
+
+	<h2 id="about">About</h2>
 On this website we publish additional entropy clustering and zesplot figures for in-depth analysis.
 <br>
 We plan to publish data, source code, and analysis tool of the work on IPv6 hitlists.
