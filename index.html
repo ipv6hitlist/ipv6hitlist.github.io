@@ -46,8 +46,8 @@ body {
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav ">
-                  <li><a href="#about">About</a></li>
-                  <li><a href="#plots">Plots</a></li>
+                  <li><a href="#hitlist">IPv6 Hitlist Service</a></li>
+                  <li><a href="#paper">Paper</a></li>
                   <li><a href="#toolsdata">Tools and Data</a></li>
                   <li><a href="#partner">Partners</a></li>
               </ul>
@@ -71,39 +71,178 @@ body {
 
         <div class="page-header">
 
-	<h2>Clusters in the Expanse:
-	Understanding and Unbiasing IPv6 Hitlists</h2>
-	<i>Oliver Gasser, Quirin Scheitle, Paweł Foremski, Qasim Lone,
-	Maciej Korczyński, Stephen D. Strowes, Luuk Hendriks, Georg Carle</i>
+	<h1>Clusters in the Expanse:
+	Understanding and Unbiasing IPv6 Hitlists</h1>
+
+
+   <h2 id="hitlist">IPv6 Hitlist Service</h2>
+
+   We provide an IPv6 Hitlist Service where we publish <b>responsive IPv6 addresses, aliased prefixes, and non-aliased prefixes</b> to interested researchers.
+   The IPv6 Hitlist Service consists of an openly accessible one and a registration-first service.
+
+    <h3>Openly Accessible Service</h3>
+
+    You can use the weekly generated list of responsive IPv6 addresses, alised prefixes, and non-aliased prefixes without registration:
+
+    <ul>
+        <li><a href="https://alcatraz.net.in.tum.de/ipv6-hitlist-service/open/responsive-addresses.txt.xz">Responsive IPv6 addresses</a></li>
+        <li><a href="https://alcatraz.net.in.tum.de/ipv6-hitlist-service/open/aliased-prefixes.txt.xz">Aliased prefixes</a></li>
+        <li><a href="https://alcatraz.net.in.tum.de/ipv6-hitlist-service/open/non-aliased-prefixes.txt.xz">Non-aliased prefixes</a></li>
+    </ul>
+
+    The responsive addresses include addresses from non-aliased prefixes only.
+
+    Please see the <a href="#aliased">notes about aliased prefixes</a> below to make use of them.
+
+
+    <h3>Registration-First Service</h3>
+
+    We provide additional data which can be used to conduct in-depth research on IPv6 networks and addresses.
+    This includes:
+    <ul>
+        <li>Daily responsive IPv6 addresses, aliased prefixes, and non-aliased prefixes</li>
+        <li>Raw ZMap output files including TCP options (e.g. usable for further alias analysis</li>
+        <li>Access to complete historical data</li>
+    </ul>
+
+    To get <b>free access</b> to this registration-first service, you can send a quick
+<a href="mailto:data-request@net.in.tum.de?subject=Access%20to%20IPv6%20Hitlist%20Service&amp;body=Hi,%0A%0A%20please%20grant%20me%20access%20to%20the%20IPv6%20Hitlist%20Service.%20My%20affiliation%20is%20CHANGEME%20and%20I%20want%20to%20use%20the%20data%20for%20FILLTHIS.%20%0A%0AThank%20you,%20kind%20regards">registration email</a>.
+     We use the gathered data for statistical purposes and might very occasionally send a survey or other requests for feedback.
+
+
+     <h3>Referencing the Hitlist Service</h3>
+
+    If you are using data from the IPv6 Hitlist Service in your publication, please refer to it with the following reference:
+
+    <code>
+        @inproceedings{gasser2018clusters,
+            title = {Clusters in the Expanse: Understanding and Unbiasing IPv6 Hitlists},
+            author = {Gasser, Oliver and Scheitle, Quirin and Foremski, Pawel and Lone, Qasim and Korczynski, Maciej and Strowes, Stephen D. and Hendriks, Luuk and Carle, Georg},
+            booktitle = {Proceedings of the 2018 Internet Measurement Conference},
+            year = {2018},
+            location = {Boston, MA, USA},
+            numpages = {15},
+            doi = {10.1145/3278532.3278564},
+            publisher = {ACM},
+            address = {New York, NY, USA},
+            }
+    </code>
+
+    The same reference applies to the open and registred service.
+
+
+    <h2 id="tools">Software and Tools</h2>
+
+    During our IPv6 hitlist analysis we developed software to analyze and understand IPv6 hitlist.
+    We publish the following software and tools for use by the scientific community:
+
+    <ul>
+        <li><a href="#zmapv6">ZMapv6</a></li>
+        <li><a href="#zesplot">zesplot</a></li>
+        <li><a href="#entropy-clustering">Entropy Clustering</a></li>
+        <li><a href="#entropy-ip">Entropy/IP</a></li>
+        <li><a href="#entropy-ip-reimp">New Entropy/IP Generator</a></li>
+        <li><a href="#apd-lpm">Longest prefix matching for aliased prefixes</a></li>
+    </ul>
+
+
+    <h3 id="zmapv6">ZMapv6</h3>
+
+    We extend the original ZMap to add IPv6 capabilites.
+    ZMapv6 supports the following new IPv6-specific probe modules:
+
+    <ul>
+        <li>ICMPv6 Echo Request</li>
+        <li>IPv6 TCP SYN (any port)</li>
+        <li>IPV6 UDP (any port and payload)</li>
+    </ul>
+
+    ZMapv6 can read IPv6 target addresses from a file or from standard input.
+
+    Source: <a href="https://github.com/tumi8/zmap">github.com/tumi8/zmap</a>
+
+
+    <h3 id="zesplot">zesplot</h3>
+
+    zesplot is a tool to visualize IPv6 networks.
+    It uses the concept of squarified treemaps and outputs IPv6 networks in a space-filling way (similar to a Hilbert curve in IPv4).
+
+    Source: <a href="https://github.com/zesplot/zesplot">github.com/zesplot/zesplot</a>
+
+
+    <h3 id="entropy-clustering">Entropy Clustering</h3>
+
+    Entropy Clustering is a software to find and visualize clusters in IPv6 addressing schemes.
+
+    Source: <a href="https://github.com/pforemski/entropy-clustering">github.com/pforemski/entropy-clustering</a>
+
+
+    <h3 id="entropy-ip">Entropy/IP</h3>
+
+    Entropy/IP is a software to find patterns in IPv6 addresses and generate addresses based on these patterns.
+    Entropy/IP was presented during the 2016 Internet Measurement Conference.
+    For more information see the <a href="http://www.entropy-ip.com/">Entropy/IP website</a>.
+
+    The Entropy/IP software is published by Akamai.
+
+    Source: <a href="https://github.com/akamai/entropy-ip">github.com/akamai/entropy-ip</a>
+
+
+    <h3 id="entropy-ip-reimp">New Entropy/IP Generator</h3>
+
+    This generator uses the output of Entropy/IP to generate IPv6 addresses which follow the specified model.
+
+    Souce: <a href="https://github.com/pforemski/eip-generator">github.com/pforemski/eip-generator</a>
+
+
+    <h3 id="apd-lpm">Longest prefix matching for aliased prefixes</h3>
+
+    To make use of our published lists of aliased and non-aliased prefixes for your custom IPv6 address list, you need to perform longest prefix matching.
+    This ensures that your addresses are matched to the longest aliased or non-aliased prefix.
+
+    For your convenience we publish a simple Python script and a Go tool for this purpose.
+
+    Python source: <a href="lpm/dpdlongestprefix.py">dpdlongestprefix.py</a>
+
+    Go source: <a href="lpm/apdlongestprefix.go">apdlongestprefix.go</a>
+
+
+
+    <h2 id="paper">Paper</h2>
+
+    <b>Abstract.</b> Network measurements are an important tool in understanding the
+Internet. Due to the expanse of the IPv6 address space, exhaustive
+scans as in IPv4 are not possible for IPv6. In recent years, several
+studies have proposed the use of target lists of IPv6 addresses, called
+IPv6 hitlists.<br>
+In this paper, we show that addresses in IPv6 hitlists are heavily
+clustered. We present novel techniques that allow IPv6 hitlists to
+be pushed from quantity to quality. We perform a longitudinal
+active measurement study over 6 months, targeting more than 50 M
+addresses. We develop a rigorous method to detect aliased prefixes,
+which identifies 1.5 % of our prefixes as aliased, pertaining to about
+half of our target addresses. Using entropy clustering, we group the
+entire hitlist into just 6 distinct addressing schemes. Furthermore,
+we perform client measurements by leveraging crowdsourcing.<br>
+To encourage reproducibility in network measurement research
+and to serve as a starting point for future IPv6 studies, we publish
+source code, analysis tools, and data.
 	<br><br>
 
-	<b>Abstract.</b> Network measurements are an important tool in understanding the Internet. Due
-	to the expanse of the IPv6 address space, exhaustive scans as in IPv4 are not possible for IPv6.
-	In recent years, several studies proposed to use target lists of IPv6 addresses, called
-	hitlists.<br>
-	In this paper, we show that addresses in IPv6 hitlists are heavily clustered. We present novel
-	techniques that allow to push IPv6 hitlists from quantity to quality. We perform a longitudinal
-	active measurement study over 6 months, targeting more than 50 M addresses. We develop a
-	rigorous method to detect aliased prefixes, which identifies 1.5 % of our prefixes as aliased,
-	pertaining to about half of our target addresses. Using entropy clustering, we group the entire
-	hitlist into just 6 distinct addressing schemes. Furthermore, we perform client measurements by
-	leveraging crowdsourcing.<br>
-	To encourage reproducibility in network measurement research and serve as a starting point for
-	future IPv6 studies, we publish source code, analysis tools, and data.
-	<br><br>
-
-	<b>Pre-print.</b> Read the pre-print of our paper at arXiv.org:
+	<b>Read the final version of our paper at arXiv.org:
 	<b><a href="https://arxiv.org/abs/1806.01633">[abstract]</a></b> and
 	<b><a href="https://arxiv.org/pdf/1806.01633.pdf">[PDF]</a></b>.
+	<br><br>
 
-	<h2 id="about">About</h2>
-On this website we publish additional entropy clustering and zesplot figures for in-depth analysis.
-<br>
-We plan to publish data, source code, and analysis tool of the work on IPv6 hitlists.
 
-  <h2 id="plots">Plots</h2>
-  
-  We provide additional in-depth plots accompanying the analyses in our paper.<br><br>
+    <b>Authors.</b>  Oliver Gasser, Quirin Scheitle, Paweł Foremski, Qasim Lone,
+	Maciej Korczyński, Stephen D. Strowes, Luuk Hendriks, Georg Carle
+	<br><br>
+
+
+    <h3>Additional Plots</h3>
+
+  We provide additional plots for in-depth analysis accompanying the evaluations in our paper.<br><br>
 
   <p>
   <b>Interactive zesplot plots</b>
@@ -138,25 +277,25 @@ This includes entropy clustering and zesplot as well as our daily hitlist probin
 	<br><br>
 	<div class="row">
 		<div class="col-lg-3" align="center">
-			<a href="https://www.tum.de/nc/en/homepage/"><img src="TU_Muenchen_Logo.svg" height="60px"/></a>
+			<a href="https://www.tum.de/nc/en/homepage/"><img src="logos/TU_Muenchen_Logo.svg" height="60px"/></a>
 		</div>
 		<div class="col-lg-3" align="center">
-			<a href="https://www.iitis.pl/en"><img src="itis.png" height="60px"/></a>
+			<a href="https://www.iitis.pl/en"><img src="logos/itis.png" height="60px"/></a>
 		</div>
 		<div class="col-lg-3" align="center">
-			<a href="https://www.tudelft.nl/en/"><img src="tudelft.jpg" height="60px"/></a>
+			<a href="https://www.tudelft.nl/en/"><img src="logos/tudelft.jpg" height="60px"/></a>
 		</div>
 	</div>
     <br><br>
 	<div class="row">
 		<div class="col-lg-3" align="center">
-			<a href="https://www.univ-grenoble-alpes.fr/en/"><img src="logo-uga.png" height="55px"/></a>
+			<a href="https://www.univ-grenoble-alpes.fr/en/"><img src="logos/logo-uga.png" height="55px"/></a>
 		</div>
 		<div class="col-lg-3" align="center">
-			<a href="https://www.ripe.net/"><img src="RIPE_NCC_Logo2015.png" height="55px"/></a>
+			<a href="https://www.ripe.net/"><img src="logos/RIPE_NCC_Logo2015.png" height="55px"/></a>
 		</div>
 		<div class="col-lg-3" align="center">
-			<a href="https://www.utwente.nl/en/"><img src="UTEN.png" height="55px"/></a>
+			<a href="https://www.utwente.nl/en/"><img src="logos/UTEN.png" height="55px"/></a>
 		</div>
 	</div>
 	<br><br>
