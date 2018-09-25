@@ -50,6 +50,20 @@ h4::before {
   pointer-events: none;
 }
 </style>
+
+<script src="highcharts/highcharts.js"></script>
+<script src="highcharts/exporting.js"></script>
+
+<script>
+	// Get the CSV and create the chart
+	$.getJSON('input.json', function (chart) {
+		Highcharts.chart('plot-input', chart);
+	});
+	$.getJSON('responsive.json', function (chart) {
+		Highcharts.chart('plot-responsive', chart);
+	});
+</script>
+
 </head>
 
 <body>
@@ -103,6 +117,12 @@ h4::before {
 
    <br>
    <br>
+
+    <div id="plot-input" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+    <br>
+
+    <div id="plot-responsive" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
     <h4>Openly Accessible Service</h4>
 
@@ -165,7 +185,7 @@ h4::before {
 
     <br><br>
 
-    The same reference applies to the open and registred service.
+    The same reference applies to the open and registered service.
 
 
    <br>
