@@ -3,14 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <title>IPv6 Hitlist Service</title>
+
+<!-- jQuery -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<!-- Latest compiled and minified bootstrap -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<!-- Highchart plotting libs -->
+<script src="js/highcharts/highcharts.js"></script>
+<script src="js/highcharts/exporting.js"></script>
+
+<!-- Parse JSON for plotting -->
+<script>
+	// Get the CSV and create the chart
+	$.getJSON('input.json', function (chart) {
+		Highcharts.chart('plot-input', chart);
+	});
+	$.getJSON('responsive.json', function (chart) {
+		Highcharts.chart('plot-responsive', chart);
+	});
+</script>
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
-<!-- Optional theme -->
+<!-- Optional bootstrap theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
 <style>
 /* Bootstrap overrides */
 body {
@@ -50,19 +71,6 @@ h4::before {
   pointer-events: none;
 }
 </style>
-
-<script src="highcharts/highcharts.js"></script>
-<script src="highcharts/exporting.js"></script>
-
-<script>
-	// Get the CSV and create the chart
-	$.getJSON('input.json', function (chart) {
-		Highcharts.chart('plot-input', chart);
-	});
-	$.getJSON('responsive.json', function (chart) {
-		Highcharts.chart('plot-responsive', chart);
-	});
-</script>
 
 </head>
 
