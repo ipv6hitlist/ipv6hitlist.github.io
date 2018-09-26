@@ -1,115 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>IPv6 Hitlist Service</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- jQuery -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-<!-- Latest compiled and minified bootstrap -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-<!-- Highchart plotting libs -->
-<script src="js/highcharts/highcharts.js"></script>
-<script src="js/highcharts/exporting.js"></script>
-
-<!-- Parse JSON for plotting -->
-<script>
-	// Get the CSV and create the chart
-	$.getJSON('input.json', function (chart) {
-		Highcharts.chart('plot-input', chart);
-	});
-	$.getJSON('responsive.json', function (chart) {
-		Highcharts.chart('plot-responsive', chart);
-	});
-</script>
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
-<!-- Optional bootstrap theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
-
-<style>
-/* Bootstrap overrides */
-body {
-  /*min-height: 1000px;*/
-  padding-top: 70px;
-}
-.navbar-default {
-  height: 65px;
-}
-.navbar-default
-.navbar-brand {
-  padding-top: 0;
-  padding-bottom: 0;
-  line-height: 65px;
-  font-size: 18pt;
-}
-.navbar-nav > li > a {
-  padding-top: 0;
-  padding-bottom: 0;
-  line-height: 65px;
-  font-size: 14pt;
-}
-h2::before {
-  display: block;
-  content: " ";
-  margin-top: -70px;
-  height: 70px;
-  visibility: hidden;
-  pointer-events: none;
-}
-h4::before {
-  display: block;
-  content: " ";
-  margin-top: -70px;
-  height: 70px;
-  visibility: hidden;
-  pointer-events: none;
-}
-</style>
+    <title>IPv6 Hitlist</title>
 
 </head>
 
+
+
 <body>
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-              <a href="index.html" class="navbar-brand">IPv6 Hitlist</a>
-          </div>
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav ">
-                  <li><a href="#hitlist">IPv6 Hitlist Service</a></li>
-                  <li><a href="#tools">Software and Tools</a></li>
-                  <li><a href="#paper">Paper</a></li>
-                  <li><a href="#reproduc">Reproducibility</a></li>
-                  <li><a href="#contact">Contact</a></li>
-                  <li><a href="#partner">Partners</a></li>
-              </ul>
-              <!--<ul class="nav navbar-nav navbar-right">
-		<li class="mylogo"><a><img src="TU_Muenchen_Logo.svg" height=40px"/></a>&nbsp;</li>
-		<li class="mylogo"><a><img src="rwth_comsys_bild_rgb.svg" height="40px"/></a>&nbsp;</li>
-		<li class="mylogo"><a><img src="Usyd_new_logo.png" height="40px"/></a>&nbsp;</li>
-		<li class="mylogo"><a><img src="neu.png" height="40px"/></a></li>
-	</ul>-->
-<a href="https://github.com/ipv6hitlist/ipv6hitlist.github.io"><img style="position: absolute; top: 0; right: 0; border: 0; z-index:999;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
-          </div>
-          <!-- /.navbar-collapse -->
+
+
+    <!-- Put nav into container to center it on the page -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top container">
+      <a class="navbar-brand" href="#">IPv6 Hitlist</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="#hitlist">IPv6 Hitlist Service</a>
+          <a class="nav-item nav-link" href="#tools">Software and Tools</a>
+          <a class="nav-item nav-link" href="#paper">Paper</a>
+          <a class="nav-item nav-link" href="#reproduc">Reproducibility</a>
+          <a class="nav-item nav-link" href="#contact">Contact</a>
+          <a class="nav-item nav-link" href="#partners">Partners</a>
+        </div>
       </div>
-      <!-- /.container -->
-  </nav>
+    </nav>
+
 
     <div class="container">
-
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-
-        <div class="page-header">
 
 	<h2>Clusters in the Expanse:
 	Understanding and Unbiasing IPv6 Hitlists</h2>
@@ -421,17 +347,29 @@ Dataset DOI: <a href="https://dx.doi.org/10.14459/2018mp1452739">10.14459/2018mp
 		</div>
 	</div>
 	<br><br>
-</div>
-
-</div>  <!-- col -->
-</div>  <!-- row -->
 
 </div> <!-- /container -->
 
+
+<!-- JS STARTS HERE -->
+<!-- jQuery -->
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+
+<!-- Highchart plotting libs -->
+<script src="js/highcharts/highcharts.js"></script>
+<script src="js/highcharts/exporting.js"></script>
+
+<!-- Parse JSON for plotting -->
+<script>
+	// Get the CSV and create the chart
+	$.getJSON('input.json', function (chart) {
+		Highcharts.chart('plot-input', chart);
+	});
+	$.getJSON('responsive.json', function (chart) {
+		Highcharts.chart('plot-responsive', chart);
+	});
+</script>
+<!-- JS ENDS HERE -->
+
 </body>
 </html>
-
-
-
-
-
