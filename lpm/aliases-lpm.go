@@ -6,7 +6,6 @@ import (
 	"log"
 	"net"
 	"os"
-	"strconv"
 	"sync"
 	"time"
 
@@ -15,14 +14,12 @@ import (
 )
 
 var opts struct {
-	// input-dpd-dir (instead of input-apd-dir) for backwards compatibility
-	InputAPDDir string `short:"i" long:"input-dpd-dir" required:"true" description:"Directory with APD output files"`
-	Date        string `short:"d" long:"date" required:"true" description:"Date and time in YYYY-MM-DD-HHMM of input files"`
-	TargetFile  string `short:"f" long:"target-file" required:"true" description:"Target file for which lookup should be performed"`
+	AliasedFile    string `short:"a" long:"aliased-file" required:"true" description:"File containing aliased prefixes"`
+	NonAliasedFile string `short:"n" long:"non-aliased-file" required:"true" description:"File containing non-aliased prefixes"`
+	IPAddressFile  string `short:"i" long:"ip-address-file" required:"true" description:"File containing IP addresses to be matched against (non-)aliased prefixes"`
 }
 
 type apdRangerEntry struct {
-	//	cidranger.RangerEntry
 	ipNet   net.IPNet
 	aliased bool
 }
@@ -35,7 +32,7 @@ func readAliased(ranger cidranger.Ranger, filename string) {
 	fillTree(ranger, filename, true)
 }
 
-func readNonaliased(ranger cidranger.Ranger, filename string) {
+func readNonAliased(ranger cidranger.Ranger, filename string) {
 	fillTree(ranger, filename, false)
 }
 
@@ -87,7 +84,6 @@ func findLongestPrefix(ranger cidranger.Ranger, inputChan <-chan string, outputC
 		}
 
 		outputChan <- []byte(fmt.Sprintf("%s,%s,%s", line, mostSpecific.ipNet.String(), aliasedStr))
-		//outputChan <- []byte(fmt.Sprintf(    line + "," + mostSpecific.ipNet.String() + "," + aliasedStr)
 	}
 }
 
@@ -139,21 +135,12 @@ func main() {
 		}
 	}
 
+	// Store aliased and non-aliased prefixes in a single trie
 	ranger := cidranger.NewPCTrieRanger()
 
-	// Read prefix-based APD results
-	// 2018-04-25-2300.csv.dpdprefix.pfxonly.sortu.dense
-	// 2018-04-25-2300.csv.dpdprefix.pfxonly.sortu.nondense
-	readAliased(ranger, opts.InputAPDDir+"/"+opts.Date+".csv.dpdprefix.pfxonly.sortu.sw3.dense")
-	readNonaliased(ranger, opts.InputAPDDir+"/"+opts.Date+".csv.dpdprefix.pfxonly.sortu.sw3.nondense")
-
-	// Read target-based DPD results
-	// 2018-04-25-2300.csv.dpdtarget.slash100.threshold.pfxonly.randomips.pfxonly.sortu.dense
-	// 2018-04-25-2300.csv.dpdtarget.slash100.threshold.pfxonly.randomips.pfxonly.sortu.nondense
-	for i := 64; i <= 124; i += 4 {
-		readAliased(ranger, opts.InputAPDDir+"/"+opts.Date+".csv.dpdtarget.slash"+strconv.Itoa(i)+".threshold.pfxonly.randomips.pfxonly.sortu.sw3.dense")
-		readNonaliased(ranger, opts.InputAPDDir+"/"+opts.Date+".csv.dpdtarget.slash"+strconv.Itoa(i)+".threshold.pfxonly.randomips.pfxonly.sortu.sw3.nondense")
-	}
+	// Read aliased and non-aliased prefixes
+	readAliased(ranger, opts.AliasedFile)
+	readNonAliased(ranger, opts.NonAliasedFile)
 
 	// Multiprocessing using goroutines
 	numRoutines := 1000
@@ -182,7 +169,7 @@ func main() {
 	}
 
 	// Start goroutine for input reading
-	go readInput(inputChan, string(opts.TargetFile))
+	go readInput(inputChan, string(opts.IPAddressFile))
 
 	time.Sleep(1000 * time.Millisecond)
 	wg.Done()
