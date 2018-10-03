@@ -388,6 +388,10 @@
         [
           1538388000000, 
           3035717
+        ], 
+        [
+          1538388000000, 
+          3035717
         ]
       ], 
       "id": "total", 
@@ -746,6 +750,10 @@
         [
           1538301600000, 
           2599522
+        ], 
+        [
+          1538388000000, 
+          2580300
         ], 
         [
           1538388000000, 
@@ -1128,6 +1136,10 @@
         [
           1538388000000, 
           930060
+        ], 
+        [
+          1538388000000, 
+          930060
         ]
       ], 
       "id": "tcp80", 
@@ -1486,6 +1498,10 @@
         [
           1538301600000, 
           698711
+        ], 
+        [
+          1538388000000, 
+          686666
         ], 
         [
           1538388000000, 
@@ -1868,6 +1884,10 @@
         [
           1538388000000, 
           580435
+        ], 
+        [
+          1538388000000, 
+          580435
         ]
       ], 
       "id": "udp53", 
@@ -2238,6 +2258,10 @@
         [
           1538388000000, 
           46378
+        ], 
+        [
+          1538388000000, 
+          46378
         ]
       ], 
       "id": "udp443", 
@@ -2247,7 +2271,7 @@
       "data": [
         {
           "text": "2a02:610::/32 (LATNET SERVISS Ltd.) stopped responding almost completely, resulting in 210k fewer ICMPv6 responses (-10%).", 
-          "title": "C", 
+          "title": "D", 
           "x": 1538042400000
         }
       ], 
@@ -2264,7 +2288,7 @@
       "data": [
         {
           "text": "Addition of IPv6 rDNS data leads to increase in responses.", 
-          "title": "B", 
+          "title": "C", 
           "x": 1535364000000
         }
       ], 
@@ -2283,6 +2307,11 @@
           "text": "240e:c0::/20 (Chinatelecom) stops responding to UDP/53 queries, resulting in a reduction of DNS response rate of almost 50%.", 
           "title": "A", 
           "x": 1531044000000
+        }, 
+        {
+          "text": "240e:c0::/20 (Chinatelecom) starts responding to UDP/53 queries again.", 
+          "title": "B", 
+          "x": 1531562400000
         }
       ], 
       "name": "Event", 
