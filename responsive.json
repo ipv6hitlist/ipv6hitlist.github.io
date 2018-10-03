@@ -2272,7 +2272,7 @@
         {
           "text": "2a02:610::/32 (LATNET SERVISS Ltd.) stopped responding almost completely, resulting in 210k fewer ICMPv6 responses (-10%).", 
           "title": "D", 
-          "x": 1538042400000
+          "x": 1538128800000
         }
       ], 
       "name": "Event", 
@@ -2311,7 +2311,7 @@
         {
           "text": "240e:c0::/20 (Chinatelecom) starts responding to UDP/53 queries again.", 
           "title": "B", 
-          "x": 1531562400000
+          "x": 1531648800000
         }
       ], 
       "name": "Event", 
