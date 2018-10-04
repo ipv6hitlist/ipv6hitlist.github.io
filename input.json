@@ -24,6 +24,7 @@
   }, 
   "series": [
     {
+      "color": "#434348", 
       "data": [
         [
           1530439200000, 
@@ -406,6 +407,7 @@
       "name": "All addresses"
     }, 
     {
+      "color": "#7cb5ec", 
       "data": [
         [
           1530439200000, 
@@ -788,6 +790,7 @@
       "name": "Non-aliased addresses"
     }, 
     {
+      "color": "#90ed7d", 
       "data": [
         [
           1530439200000, 
@@ -1170,6 +1173,7 @@
       "name": "Aliased addreses"
     }, 
     {
+      "color": "#90ed7d", 
       "data": [
         {
           "text": "Withdrawal of two Amazon EC2 prefixes (2600:9000:200e::/48, 2600:9000:210c::/48) on 2018-09-12, resulting in a drop of addresses in aliased prefixes.", 
@@ -1187,6 +1191,7 @@
       "type": "flags"
     }, 
     {
+      "color": "#434348", 
       "data": [
         {
           "text": "Addition of IPv6 rDNS leads to increase in target addresses.", 

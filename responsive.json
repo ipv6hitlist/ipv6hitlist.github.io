@@ -24,6 +24,7 @@
   }, 
   "series": [
     {
+      "color": "#434348", 
       "data": [
         [
           1530439200000, 
@@ -406,6 +407,7 @@
       "name": "Total responsive"
     }, 
     {
+      "color": "#7cb5ec", 
       "data": [
         [
           1530439200000, 
@@ -788,6 +790,7 @@
       "name": "ICMPv6 responsive"
     }, 
     {
+      "color": "#90ed7d", 
       "data": [
         [
           1530439200000, 
@@ -1170,6 +1173,7 @@
       "name": "TCP/80 responsive"
     }, 
     {
+      "color": "#f7a35c", 
       "data": [
         [
           1530439200000, 
@@ -1552,6 +1556,7 @@
       "name": "TCP/443 responsive"
     }, 
     {
+      "color": "#8085e9", 
       "data": [
         [
           1530439200000, 
@@ -1934,6 +1939,7 @@
       "name": "UDP/53 responsive"
     }, 
     {
+      "color": "#f15c80", 
       "data": [
         [
           1530439200000, 
@@ -2316,6 +2322,7 @@
       "name": "UDP/443 responsive"
     }, 
     {
+      "color": "#7cb5ec", 
       "data": [
         {
           "text": "2a02:610::/32 (LATNET SERVISS Ltd.) stopped responding almost completely, resulting in 210k fewer ICMPv6 responses (-10%).", 
@@ -2333,6 +2340,7 @@
       "type": "flags"
     }, 
     {
+      "color": "#434348", 
       "data": [
         {
           "text": "Addition of IPv6 rDNS data leads to increase in responses.", 
@@ -2350,6 +2358,7 @@
       "type": "flags"
     }, 
     {
+      "color": "#8085e9", 
       "data": [
         {
           "text": "240e:c0::/20 (Chinatelecom) stops responding to UDP/53 queries, resulting in a reduction of DNS response rate of almost 50%.", 
