@@ -641,6 +641,10 @@
         [
           1543662000000, 
           3277107
+        ], 
+        [
+          1543748400000, 
+          3377216
         ]
       ], 
       "id": "total", 
@@ -1264,6 +1268,10 @@
         [
           1543662000000, 
           2153276
+        ], 
+        [
+          1543748400000, 
+          2174116
         ]
       ], 
       "id": "icmp", 
@@ -1887,6 +1895,10 @@
         [
           1543662000000, 
           903267
+        ], 
+        [
+          1543748400000, 
+          917111
         ]
       ], 
       "id": "tcp80", 
@@ -2510,6 +2522,10 @@
         [
           1543662000000, 
           625068
+        ], 
+        [
+          1543748400000, 
+          638820
         ]
       ], 
       "id": "tcp443", 
@@ -3133,6 +3149,10 @@
         [
           1543662000000, 
           1222770
+        ], 
+        [
+          1543748400000, 
+          1302368
         ]
       ], 
       "id": "udp53", 
@@ -3756,6 +3776,10 @@
         [
           1543662000000, 
           40575
+        ], 
+        [
+          1543748400000, 
+          40612
         ]
       ], 
       "id": "udp443", 
@@ -3806,14 +3830,19 @@
       "color": "#8085e9", 
       "data": [
         {
-          "text": "240e:c0::/20 (Chinatelecom) stops responding to UDP/53 queries, resulting in a reduction of DNS response rate of almost 50%.", 
+          "text": "240e::/20 (Chinatelecom) stops responding to UDP/53 queries, resulting in a reduction of DNS response rate of almost 50%.", 
           "title": "A", 
           "x": 1531044000000
         }, 
         {
-          "text": "240e:c0::/20 (Chinatelecom) starts responding to UDP/53 queries again.", 
+          "text": "240e::/20 (Chinatelecom) starts responding to UDP/53 queries again.", 
           "title": "B", 
           "x": 1531648800000
+        }, 
+        {
+          "text": "240e::/20 (Chinatelecom) stopped responding to UDP/53 queries for almost half of their hosts, resulting in 473k fewer UDP/53 responses.", 
+          "title": "F", 
+          "x": 1543489200000
         }
       ], 
       "name": "Event", 
