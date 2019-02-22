@@ -957,6 +957,10 @@
         [
           1550574000000, 
           222698636
+        ], 
+        [
+          1550660400000, 
+          223139486
         ]
       ], 
       "id": "all", 
@@ -1896,6 +1900,10 @@
         [
           1550574000000, 
           166556321
+        ], 
+        [
+          1550660400000, 
+          166932365
         ]
       ], 
       "id": "nonaliased", 
@@ -2835,6 +2843,10 @@
         [
           1550574000000, 
           56142315
+        ], 
+        [
+          1550660400000, 
+          56207121
         ]
       ], 
       "id": "aliased", 
@@ -2865,6 +2877,11 @@
           "text": "Addition of IPv6 rDNS leads to increase in target addresses.", 
           "title": "A", 
           "x": 1535364000000
+        }, 
+        {
+          "text": "Addition of additional IPv6 rDNS dataset leads to increase in target addresses.", 
+          "title": "C", 
+          "x": 1550612812000
         }
       ], 
       "name": "Event", 
