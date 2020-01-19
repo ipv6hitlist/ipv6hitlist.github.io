@@ -2121,6 +2121,10 @@
         [
           1579086000000, 
           385393402
+        ], 
+        [
+          1579258800000, 
+          386338298
         ]
       ], 
       "id": "all", 
@@ -4224,6 +4228,10 @@
         [
           1579086000000, 
           260118382
+        ], 
+        [
+          1579258800000, 
+          260495621
         ]
       ], 
       "id": "nonaliased", 
@@ -6327,10 +6335,55 @@
         [
           1579086000000, 
           125275020
+        ], 
+        [
+          1579258800000, 
+          125842677
         ]
       ], 
       "id": "aliased", 
       "name": "Aliased addreses"
+    }, 
+    {
+      "color": "#90ed7d", 
+      "data": [
+        {
+          "text": "Withdrawal of two Amazon EC2 prefixes (2600:9000:200e::/48, 2600:9000:210c::/48) on 2018-09-12, resulting in a drop of addresses in aliased prefixes.", 
+          "title": "B", 
+          "x": 1536919200000
+        }
+      ], 
+      "name": "Event", 
+      "onSeries": "aliased", 
+      "shape": "squarepin", 
+      "showInLegend": false, 
+      "tooltip": {
+        "pointFormat": "{point.x:%b %d, %Y}: {point.text}"
+      }, 
+      "type": "flags"
+    }, 
+    {
+      "color": "#434348", 
+      "data": [
+        {
+          "text": "Addition of IPv6 rDNS leads to increase in target addresses.", 
+          "title": "A", 
+          "x": 1535364000000
+        }, 
+        {
+          "text": "Addition of additional IPv6 rDNS dataset leads to increase in target addresses.", 
+          "title": "C", 
+          "x": 1550612812000
+        }
+      ], 
+      "name": "Event", 
+      "onSeries": "all", 
+      "shape": "squarepin", 
+      "showInLegend": false, 
+      "tooltip": {
+        "pointFormat": "{point.x:%b %d, %Y}: {point.text}"
+      }, 
+      "type": "flags"
     }
   ], 
   "title": {
