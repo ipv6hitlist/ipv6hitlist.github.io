@@ -2263,14 +2263,6 @@
           394233607
         ], 
         [
-          1585306800000, 
-          394951848
-        ], 
-        [
-          1585479600000, 
-          395663859
-        ], 
-        [
           1585562400000, 
           396064355
         ], 
@@ -4524,14 +4516,6 @@
         [
           1585134000000, 
           273454281
-        ], 
-        [
-          1585306800000, 
-          161555379
-        ], 
-        [
-          1585479600000, 
-          34195575
         ], 
         [
           1585562400000, 
@@ -6789,14 +6773,6 @@
           120779326
         ], 
         [
-          1585306800000, 
-          71454299
-        ], 
-        [
-          1585479600000, 
-          15147296
-        ], 
-        [
           1585562400000, 
           0
         ], 
@@ -6811,47 +6787,6 @@
       ], 
       "id": "aliased", 
       "name": "Aliased addreses"
-    }, 
-    {
-      "color": "#90ed7d", 
-      "data": [
-        {
-          "text": "Withdrawal of two Amazon EC2 prefixes (2600:9000:200e::/48, 2600:9000:210c::/48) on 2018-09-12, resulting in a drop of addresses in aliased prefixes.", 
-          "title": "B", 
-          "x": 1536919200000
-        }
-      ], 
-      "name": "Event", 
-      "onSeries": "aliased", 
-      "shape": "squarepin", 
-      "showInLegend": false, 
-      "tooltip": {
-        "pointFormat": "{point.x:%b %d, %Y}: {point.text}"
-      }, 
-      "type": "flags"
-    }, 
-    {
-      "color": "#434348", 
-      "data": [
-        {
-          "text": "Addition of IPv6 rDNS leads to increase in target addresses.", 
-          "title": "A", 
-          "x": 1535364000000
-        }, 
-        {
-          "text": "Addition of additional IPv6 rDNS dataset leads to increase in target addresses.", 
-          "title": "C", 
-          "x": 1550612812000
-        }
-      ], 
-      "name": "Event", 
-      "onSeries": "all", 
-      "shape": "squarepin", 
-      "showInLegend": false, 
-      "tooltip": {
-        "pointFormat": "{point.x:%b %d, %Y}: {point.text}"
-      }, 
-      "type": "flags"
     }
   ], 
   "title": {
