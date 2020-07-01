@@ -385,6 +385,13 @@ Dataset DOI: <a href="https://dx.doi.org/10.14459/2018mp1452739">10.14459/2018mp
 
 <!-- Parse JSON for plotting -->
 <script>
+	// Set thousands separator as comma
+	Highcharts.setOptions({
+		lang: {
+			thousandsSep: ','
+		}
+	});
+
 	// Get the CSV and create the chart
 	$.getJSON('input.json', function (chart) {
 		Highcharts.chart('plot-input', chart);
