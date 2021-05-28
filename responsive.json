@@ -2915,10 +2915,6 @@
           17221484
         ], 
         [
-          1621591200000, 
-          20378324
-        ], 
-        [
           1621764000000, 
           18282183
         ]
@@ -5816,10 +5812,6 @@
         [
           1621332000000, 
           3151954
-        ], 
-        [
-          1621591200000, 
-          5343487
         ], 
         [
           1621764000000, 
@@ -8721,10 +8713,6 @@
           1160585
         ], 
         [
-          1621591200000, 
-          1264693
-        ], 
-        [
           1621764000000, 
           1150940
         ]
@@ -11622,10 +11610,6 @@
         [
           1621332000000, 
           969504
-        ], 
-        [
-          1621591200000, 
-          1070222
         ], 
         [
           1621764000000, 
@@ -14527,10 +14511,6 @@
           14311617
         ], 
         [
-          1621591200000, 
-          15324155
-        ], 
-        [
           1621764000000, 
           15374795
         ]
@@ -17430,105 +17410,12 @@
           86121
         ], 
         [
-          1621591200000, 
-          87142
-        ], 
-        [
           1621764000000, 
           87075
         ]
       ], 
       "id": "udp443", 
       "name": "UDP/443 responsive"
-    }, 
-    {
-      "color": "#7cb5ec", 
-      "data": [
-        {
-          "text": "2a02:610::/32 (LATNET SERVISS Ltd.) stopped responding almost completely, resulting in 210k fewer ICMPv6 responses (-10%).", 
-          "title": "D", 
-          "x": 1538128800000
-        }, 
-        {
-          "text": "2001:bc8:2800::/48 (Online S.A.S. / Iliad-Entreprises) stopped responding almost completely, resulting in 225k fewer ICMPv6 responses (-10%).", 
-          "title": "E", 
-          "x": 1542538800000
-        }, 
-        {
-          "text": "Addition of additional IPv6 rDNS dataset leads to increase in ICMPv6 responses.", 
-          "title": "I", 
-          "x": 1556704800000
-        }
-      ], 
-      "name": "Event", 
-      "onSeries": "icmp", 
-      "shape": "squarepin", 
-      "showInLegend": false, 
-      "tooltip": {
-        "pointFormat": "{point.x:%b %d, %Y}: {point.text}"
-      }, 
-      "type": "flags"
-    }, 
-    {
-      "color": "#434348", 
-      "data": [
-        {
-          "text": "Addition of IPv6 rDNS data leads to increase in responses.", 
-          "title": "C", 
-          "x": 1535364000000
-        }, 
-        {
-          "text": "Addition of additional IPv6 rDNS dataset leads to increase in responses.", 
-          "title": "G", 
-          "x": 1550612812000
-        }
-      ], 
-      "name": "Event", 
-      "onSeries": "total", 
-      "shape": "squarepin", 
-      "showInLegend": false, 
-      "tooltip": {
-        "pointFormat": "{point.x:%b %d, %Y}: {point.text}"
-      }, 
-      "type": "flags"
-    }, 
-    {
-      "color": "#8085e9", 
-      "data": [
-        {
-          "text": "240e::/20 (Chinatelecom) stops responding to UDP/53 queries, resulting in a reduction of DNS response rate of almost 50%.", 
-          "title": "A", 
-          "x": 1531044000000
-        }, 
-        {
-          "text": "240e::/20 (Chinatelecom) starts responding to UDP/53 queries again.", 
-          "title": "B", 
-          "x": 1531648800000
-        }, 
-        {
-          "text": "240e::/20 (Chinatelecom) stopped responding to UDP/53 queries for almost half of their hosts, resulting in 473k fewer UDP/53 responses.", 
-          "title": "F", 
-          "x": 1543489200000
-        }, 
-        {
-          "text": "240e::/20 (Chinatelecom) stopped responding to UDP/53 queries almost completely, resulting in 2.4M fewer UDP/53 responses (-99%).", 
-          "title": "H", 
-          "x": 1551351600000
-        }, 
-        {
-          "text": "240e::/18 (Chinatelecom) stopped responding to UDP/53 queries almost completely, resulting in 17.9M fewer UDP/53 responses (-99%).", 
-          "title": "J", 
-          "x": 1599645600000
-        }
-      ], 
-      "name": "Event", 
-      "onSeries": "udp53", 
-      "shape": "squarepin", 
-      "showInLegend": false, 
-      "tooltip": {
-        "pointFormat": "{point.x:%b %d, %Y}: {point.text}"
-      }, 
-      "type": "flags"
     }
   ], 
   "title": {
