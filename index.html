@@ -55,7 +55,8 @@
         <div class="navbar-nav container">
           <a class="nav-item nav-link" href="#hitlist">IPv6 Hitlist Service</a>
           <a class="nav-item nav-link" href="#tools">Software and Tools</a>
-          <a class="nav-item nav-link" href="#paper">Paper</a>
+          <a class="nav-item nav-link" href="#paper2022">Paper (IMC 2022)</a>
+          <a class="nav-item nav-link" href="#paper2018">Paper (IMC 2018)</a>
           <a class="nav-item nav-link" href="#reproduc">Reproducibility</a>
           <a class="nav-item nav-link" href="#contact">Contact</a>
           <a class="nav-item nav-link" href="#partners">Partners</a>
@@ -69,9 +70,9 @@
     <div class="container">
 
 
-	<h2 class="topmargin">Clusters in the Expanse: Understanding and Unbiasing IPv6 Hitlists</h2>
+	<h2 class="topmargin">Understanding and Unbiasing IPv6 Hitlists</h2>
 
-    On this website we present additional information about our IMC paper <i>Clusters in the Expanse: Understanding and Unbiasing IPv6 Hitlists</i> and provide access to our IPv6 Hitlist Service.
+    On this website we present additional information about our IMC papers <i>"Clusters in the Expanse: Understanding and Unbiasing IPv6 Hitlists"</i> and <i>"Rusty Clusters? Dusting an IPv6 Research Foundation"</i>, and provide access to our IPv6 Hitlist Service.
 
    <h2 id="hitlist">IPv6 Hitlist Service</h2>
 
@@ -85,6 +86,15 @@
     <br>
 
     <div id="plot-responsive" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+    The plot of responisve addresses is an updated version.
+    We removed all responses to the UDP/53 scan injected by the Great Firewall of China.
+    The original plot and additional information is provided here:
+    <ul>
+        <li><a href="gfw-filter/">Great Firewall of China Hitlist Filter</a></li>
+    </ul>
+
+    We provide both filtered and unfiltered, historic UPD/53 files for registered users. 
 
     <h4>Openly Accessible Service</h4>
 
@@ -119,7 +129,7 @@
 
      <h4>Referencing the Hitlist Service</h4>
 
-    If you are using data from the IPv6 Hitlist Service in your publication, please refer to it with the following reference:
+    If you are using data from the IPv6 Hitlist Service in your publication, please refer to it with the following references:
 
     <br>
 
@@ -139,8 +149,25 @@
     </code>
     </small>
 
+    <small>
+    <code>
+        @inproceedings{zirngibl2022rustyclusters,<br>
+        &nbsp;&nbsp;    title = {Rusty Clusters? Dusting an IPv6 Research Foundation},<br>
+        &nbsp;&nbsp;    author = {Zirngbil, Johannes and Steger, Lion and Sattler, Patrick and Gasser, Oliver and Carle, Georg},<br>
+        &nbsp;&nbsp;    booktitle = {Proceedings of the 2022 Internet Measurement Conference},<br>
+        &nbsp;&nbsp;    year = {2022},<br>
+        &nbsp;&nbsp;    location = {Nice, France},<br>
+        &nbsp;&nbsp;    numpages = {},<br>
+        &nbsp;&nbsp;    doi = {},<br>
+        &nbsp;&nbsp;    publisher = {ACM},<br>
+        &nbsp;&nbsp;    address = {New York, NY, USA},<br>
+        }
+    </code>
+    </small>
+
+
     <p>
-    The same reference applies to the open and registered service. <b><a href="gasser2018clusters.bib">[bib]</a></b>
+    The same reference applies to the open and registered service. <b><a href="gasser2018clusters.bib">[bib]</a> and <a href="zirngibl2022rustyclusters.bib">[bib]</a></b>
 
 
     <h2 id="tools">Software and Tools</h2>
@@ -155,6 +182,8 @@
         <li><a href="#entropy-ip">Entropy/IP</a></li>
         <li><a href="#entropy-ip-reimp">New Entropy/IP Generator</a></li>
         <li><a href="#apd-lpm">Longest prefix matching for aliased prefixes</a></li>
+        <li><a href="#distance-clustering">Distance Clustering</a></li>
+        <li><a href="#gfw-filter"> GFW filter</a></li>
     </ul>
 
     <h4 id="zmapv6">ZMapv6</h4>
@@ -233,8 +262,60 @@
 
     Go source: <a href="lpm/aliases-lpm.go">aliases-lpm.go</a>
 
+    <h4 id="distance-clustering">Distance Clustering</h4>
+    This method generates IPv6 address candidates from a seed list.
+    It extends more densely clustered address regions that show high entropy in the last nibble(s) of the address.
+    Note, these regions are not fully responsive but only densely populated.
+    <br>
 
-    <h2 id="paper">Paper</h2>
+    Python source: <a href="distance-clustering/"> distance-clustering</a>
+
+    <h4 id="gfw-filter">GFW filer</h4>
+    We provide a script to filter the output of UDP/53 scans from the impact of the GFW.
+
+    <br>
+    Python source: <a href="gfw-filter/filter_gfw.py">filter_gfw.py</a>
+    
+
+    <h2 id="paper2022">Rusty Clusters? Dusting an IPv6 Research Foundation</h2>
+	
+    <b> Abstract.</b> The long-running IPv6 Hitlist service is an important
+    foundation for IPv6 measurement studies. It helps to overcome infeasible,
+    complete address space scans by collecting valuable, unbiased IPv6 address
+    candidates and their responsiveness. However, the Internet itself is a
+    quickly changing ecosystem that can effect long-running services, potentially
+    inducing new biases and obscurities into ongoing data collection means. 
+    Frequent analyses  but also updates are necessary to enable a valuable service
+    to the community.<br>
+	In this paper, we show that the existing hitlist is highly impacted by the
+    Great Firewall of China and we offer a cleaned view on its development. While
+    the accumulated input shows an increasing bias towards some networks, the
+    cleaned set of responsive addresses is well distributed and shows a steady
+    increase.<br>
+	Although it is a best practice to remove aliased prefixes from IPv6 hitlists,
+    we show that this removes not only single hosts responsive to complete
+    prefixes, but also major content delivery networks. More than 98 % of all
+    IPv6 addresses announced by Fastly are labeled as aliased and Cloudflare
+    prefixes hosting more than \sm{10} domains are excluded. Depending on the
+    hitlist usage, e.g., higher layer protocol scans, inclusion of addresses
+    from these providers can be valuable.<br>
+	Lastly, we evaluate different new address candidate sources, including
+    target generation algorithms. We show that a combination of different
+    methodologies is able to identify 5.6 M new, responsive addresses. This
+    accounts for an increase by 174 % and combined with the current IPv6 Hitlist,
+    we identify 8.8 M responsive addresses.
+    <br>
+    <b>Paper. </b> Read the final version of our paper at: <b>TODO</b> and <b>TODO</b>
+    <br>
+
+    <b>Authors.</b> 
+    <a href="https://www.net.in.tum.de/members/zirngibl/">Johannes Zirngibl</a>,
+    <a href="https://www.net.in.tum.de/members/stegerl/">Lion Steger</a>,
+    <a href="https://www.net.in.tum.de/members/sattler/">Patrick Sattler</a>,
+    <a href="https://olivergasser.net/">Oliver Gasser</a>,
+    <a href="https://www.net.in.tum.de/members/carle/">Georg Carle</a>.
+
+    <h2 id="paper2018">Clusters in the Expanse: Understanding and Unbiasing IPv6 Hitlists</h2>
 
     <b>Abstract.</b> Network measurements are an important tool in understanding the
 Internet. Due to the expanse of the IPv6 address space, exhaustive
@@ -294,6 +375,14 @@ source code, analysis tools, and data.
 
   <h2 id="reproduc">Reproducibility</h2>
 
+  <h4>Rusty Clusters? Dusting an IPv6 Research Foundation</h4>
+  <i> The dataset will be available soon </i>
+  We publish data and scripts to reproduce our analysis at the <a href="https://mediatum.ub.tum.de/1686542"> TUM university library</a> to guarantee ling-term availability.
+
+  <br>
+  Dataset DOI: <a href="https://doi.org/10.14459/2022mp1686542">10.14459/2022mp1686542 </a>
+
+  <h4>Clusters in the Expanse: Understanding and Unbiasing IPv6 Hitlists</h4>
 We publish data and scripts to reproduce our analysis at the
 <a href="https://mediatum.ub.tum.de/1452739">TUM university library</a> to guarantee long-term availability.
 
@@ -328,8 +417,8 @@ Dataset DOI: <a href="https://dx.doi.org/10.14459/2018mp1452739">10.14459/2018mp
 
 
 <h2 id="contact">Contact</h2>
-    <b><a href="https://olivergasser.net/">Oliver Gasser</a></b>: <b>oliver.gasser</b> [AT] <b>mpi-inf.mpg.de</b>
-
+    <b><a href="https://olivergasser.net/">Oliver Gasser</a></b>: <b>oliver.gasser</b> [AT] <b>mpi-inf.mpg.de</b><br>
+    <b><a href="https://www.net.in.tum.de/members/zirngibl/">Johannes Zirngibl</a></b>: <b>zirngibl</b> [AT] <b>net.in.tum.de</b>
 
 <h2 id="partners">Partners</h2>
 
@@ -355,7 +444,14 @@ Dataset DOI: <a href="https://dx.doi.org/10.14459/2018mp1452739">10.14459/2018mp
             <a href="https://www.utwente.nl/en/"><img src="logos/UTEN.png" alt="UTwente logo" class="img-fluid"/></a>
 		</div>
 	</div>
-	<br><br>
+    <div class="row align-items-center">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-3">
+            <a href="https://www.mpi-inf.mpg.de/home"><img src="logos/logo_mpi.png" alt="MPI logo" class="img-fluid"/></a>
+        </div>
+    </div>
+    <br><br>
 
 </div> <!-- /container -->
 

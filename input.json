@@ -3229,6 +3229,18 @@
         [
           1660471200000, 
           1002106046
+        ], 
+        [
+          1660903200000, 
+          1004934753
+        ], 
+        [
+          1661335200000, 
+          1006962692
+        ], 
+        [
+          1661767200000, 
+          1008894199
         ]
       ], 
       "id": "all", 
@@ -6440,6 +6452,18 @@
         [
           1660471200000, 
           530973665
+        ], 
+        [
+          1660903200000, 
+          531943458
+        ], 
+        [
+          1661335200000, 
+          532822914
+        ], 
+        [
+          1661767200000, 
+          533670280
         ]
       ], 
       "id": "nonaliased", 
@@ -9651,6 +9675,18 @@
         [
           1660471200000, 
           313661291
+        ], 
+        [
+          1660903200000, 
+          315521273
+        ], 
+        [
+          1661335200000, 
+          316670608
+        ], 
+        [
+          1661767200000, 
+          317755589
         ]
       ], 
       "id": "aliased", 
@@ -9686,7 +9722,12 @@
           "text": "Addition of additional IPv6 rDNS dataset leads to increase in target addresses.", 
           "title": "C", 
           "x": 1550612812000
-        }
+        },
+        {
+            "text": "Addition of new address candidates from passive sources and target generation methods",
+            "title": "E",
+            "x": 1658311200000
+       }
       ], 
       "name": "Event", 
       "onSeries": "all", 
@@ -9696,7 +9737,25 @@
         "pointFormat": "{point.x:%b %d, %Y}: {point.text}"
       }, 
       "type": "flags"
-    }
+    },
+    {
+      "color": "#434348",
+      "data": [
+        {
+          "text": "Removal of IPv6 addresses impacted by the GFW of China",
+          "title": "D",
+          "x": 1645009200000
+        }
+      ],
+      "name": "Event",
+      "onSeries": "nonaliased",
+      "shape": "squarepin",
+      "showInLegend": false,
+      "tooltip": {
+        "pointFormat": "{point.x:%b %d, %Y}: {point.text}"
+      },
+      "type": "flags"
+     }
   ], 
   "title": {
     "text": "Addresses in IPv6 Hitlist"

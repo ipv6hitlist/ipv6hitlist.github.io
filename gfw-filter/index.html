@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IPv6 Hitlist: The Impact of the Great Firewall of China </title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+	<style>
+		.h4, h4 {                                                               
+		    font-size: 1.5rem;                                                  
+		    padding-top: 4rem;                                                  
+		    margin-top: -2rem;                                                  
+		}   
+	</style>
+</head>
+<body>
+<center><h1>IPv6 Hitlist: The Impact of the Great Firewall of China</h1>
+
+The following plot depicts the IPv6 Hitlist service results before the publication of <i> Rusty Clusters? Dusting an IPv6 Research Foundation</i>
+</center>
+<div class="container">
+<div id="plot-responsive" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<h3>Explanation:</h3>
+The published hitlist contains significant spikes in responsive addresses.
+However, those spikes are only visible for UDP/53 scans.
+
+These spikes are due to DNS responses injected by the Great Firewall of China.
+ZMapv6 is configured to send DNS queries requesting a AAAA record for <i>www.google.com</i>.
+For more than 130M IPv6 addresses, the response to those UDP/53 probes contains a AAAA record including a Teredo address.
+However, the IPv4 address embedded into the Teredo address is not related to Google.
+Furthermore, we receive multiple responses for each query from those addresses.
+
+Most of these adresses are not responsive to any other protocol and no responses are seen for other DNS queries.
+Therefore, we filter those responses in the future to provide cleaned results.
+For more detail, we refer to the analysis in the paper. <br>
+
+<h4 id="gfw-filter">GFW filer</h4>
+We provide a script to filter the output of UDP/53 scans from the impact of the GFW.
+
+<br>
+Python source: <a href="filter_gfw.py">filter_gfw.py</a>
+
+
+<!-- JS STARTS HERE -->
+<!-- jQuery -->
+<script src="../js/jquery-3.5.1.min.js"></script>
+
+<!-- popper.js -->
+<script src="../js/popper.min.js"></script>
+
+<!-- Bootstrap JS - necessary for expanding the navbar menu -->
+<script src="../js/bootstrap.min.js"></script>
+
+<!-- Hide navbar on click -->
+<script>
+    $('.nav-item').on('click', function(){
+        $('.navbar-collapse').collapse('hide');
+});
+</script>
+
+<!-- Highchart plotting libs -->
+<script src="../js/highcharts/highstock.js"></script>
+<script src="../js/highcharts/exporting.js"></script>
+<script src="../js/highcharts/offline-exporting.js"></script>
+<script src="../js/highcharts/export-data.js"></script>
+
+<!-- Parse JSON for plotting -->
+<script>
+    // Set thousands separator as comma
+    Highcharts.setOptions({
+        lang: {
+            thousandsSep: ','
+        }
+    });
+
+    // Get the CSV and create the chart
+    $.getJSON('responsive_gfw.json', function (chart) {
+        Highcharts.chart('plot-responsive', chart);
+    });
+</script>
+<!-- JS ENDS HERE -->
+
+</div>
+</body>
+</html>
