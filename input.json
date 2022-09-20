@@ -3241,6 +3241,22 @@
         [
           1661767200000, 
           1008894199
+        ], 
+        [
+          1662112800000, 
+          1010315459
+        ], 
+        [
+          1662458400000, 
+          1011631920
+        ], 
+        [
+          1662804000000, 
+          1011494904
+        ], 
+        [
+          1663063200000, 
+          1013286421
         ]
       ], 
       "id": "all", 
@@ -6464,6 +6480,22 @@
         [
           1661767200000, 
           533670280
+        ], 
+        [
+          1662112800000, 
+          533882996
+        ], 
+        [
+          1662458400000, 
+          533815571
+        ], 
+        [
+          1662804000000, 
+          533925850
+        ], 
+        [
+          1663063200000, 
+          534089118
         ]
       ], 
       "id": "nonaliased", 
@@ -9687,6 +9719,22 @@
         [
           1661767200000, 
           317755589
+        ], 
+        [
+          1662112800000, 
+          318964941
+        ], 
+        [
+          1662458400000, 
+          320349417
+        ], 
+        [
+          1662804000000, 
+          320102695
+        ], 
+        [
+          1663063200000, 
+          321731411
         ]
       ], 
       "id": "aliased", 
@@ -9722,12 +9770,7 @@
           "text": "Addition of additional IPv6 rDNS dataset leads to increase in target addresses.", 
           "title": "C", 
           "x": 1550612812000
-        },
-        {
-            "text": "Addition of new address candidates from passive sources and target generation methods",
-            "title": "E",
-            "x": 1658311200000
-       }
+        }
       ], 
       "name": "Event", 
       "onSeries": "all", 
@@ -9737,25 +9780,7 @@
         "pointFormat": "{point.x:%b %d, %Y}: {point.text}"
       }, 
       "type": "flags"
-    },
-    {
-      "color": "#434348",
-      "data": [
-        {
-          "text": "Removal of IPv6 addresses impacted by the GFW of China",
-          "title": "D",
-          "x": 1645009200000
-        }
-      ],
-      "name": "Event",
-      "onSeries": "nonaliased",
-      "shape": "squarepin",
-      "showInLegend": false,
-      "tooltip": {
-        "pointFormat": "{point.x:%b %d, %Y}: {point.text}"
-      },
-      "type": "flags"
-     }
+    }
   ], 
   "title": {
     "text": "Addresses in IPv6 Hitlist"
