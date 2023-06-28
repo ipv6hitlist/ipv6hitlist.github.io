@@ -55,6 +55,7 @@
         <div class="navbar-nav container">
           <a class="nav-item nav-link" href="#hitlist">IPv6 Hitlist Service</a>
           <a class="nav-item nav-link" href="#tools">Software and Tools</a>
+          <a class="nav-item nav-link" href="#paper2023">Paper (TMA 2023)</a>
           <a class="nav-item nav-link" href="#paper2022">Paper (IMC 2022)</a>
           <a class="nav-item nav-link" href="#paper2018">Paper (IMC 2018)</a>
           <a class="nav-item nav-link" href="#reproduc">Reproducibility</a>
@@ -165,9 +166,23 @@
     </code>
     </small>
 
+    <small>
+    <code>
+        @inproceedings{steger2023targetacquired,<br>
+        &nbsp;&nbsp;    title = {Target Acquired? Evaluating Target Generation Algorithms for IPv6},<br>
+        &nbsp;&nbsp;    author = {Steger, Lion and Kuang, Liming and Zirngibl, Johannes and Carle, Georg and Gasser, Oliver},<br>
+        &nbsp;&nbsp;    booktitle = {Proceedings of the Network Traffic Measurement and Analysis Conference (TMA)},<br>
+        &nbsp;&nbsp;    year = {2023},<br>
+        &nbsp;&nbsp;    month = jun,<br>
+        &nbsp;&nbsp;    location = {Naples, Italy},<br>
+        &nbsp;&nbsp;    publisher = {},<br>
+        }
+    </code>
+    </small>
+
 
     <p>
-    The same reference applies to the open and registered service. <b><a href="gasser2018clusters.bib">[bib]</a> and <a href="zirngibl2022rustyclusters.bib">[bib]</a></b>
+    The same reference applies to the open and registered service. <b><a href="gasser2018clusters.bib">[bib]</a>, <a href="zirngibl2022rustyclusters.bib">[bib]</a> and <a href="steger2023targetacquired.bib">[bib]</a></b>
 
 
     <h2 id="tools">Software and Tools</h2>
@@ -277,6 +292,40 @@
     Python source: <a href="gfw-filter/filter_gfw.py">filter_gfw.py</a>
     
 
+    <h2 id="paper2023">Target Acquired? Evaluating Target Generation Algorithms for IPv6</h2>
+	
+    <b> Abstract.</b> Internet measurements are a crucial foundation of
+    IPv6-related research. Due to the infeasibility of full address space
+    scans for IPv6 however, those measurements rely on collections
+    of reliably responsive, unbiased addresses, as provided e.g., by
+    the IPv6 Hitlist service. Although used for various use cases, the
+    hitlist provides an unfiltered list of responsive addresses, the hosts
+    behind which can come from a range of different networks and
+    devices, such as web servers, customer-premises equipment (CPE)
+    devices, and Internet infrastructure. <br>
+    In this paper, we demonstrate the importance of tailoring
+    hitlists in accordance with the research goal in question. By
+    using PeeringDB we classify hitlist addresses into six different
+    network categories, uncovering that 42% of hitlist addresses are
+    in ISP networks. Moreover, we show the different behavior of
+    those addresses depending on their respective category, e.g., ISP
+    addresses exhibiting a relatively low lifetime. Furthermore, we
+    analyze different Target Generation Algorithms (TGAs), which are
+    used to increase the coverage of IPv6 measurements by generating
+    new responsive targets for scans. We evaluate their performance
+    under various conditions and find generated addresses to show
+    vastly differing responsiveness levels for different TGAs.
+    <br>
+    <b>Paper. </b> Read the final version of our paper here: <b><a href="http://www.net.in.tum.de/fileadmin/bibtex/publications/papers/steger2023targetacquired.pdf">[PDF]</a></b>
+    <br>
+
+    <b>Authors.</b> 
+    <a href="https://www.net.in.tum.de/members/stegerl/">Lion Steger</a>,
+    Liming Kuang,
+    <a href="https://www.net.in.tum.de/members/zirngibl/">Johannes Zirngibl</a>,
+    <a href="https://www.net.in.tum.de/members/carle/">Georg Carle</a>,
+    <a href="https://olivergasser.net/">Oliver Gasser</a>.
+    
     <h2 id="paper2022">Rusty Clusters? Dusting an IPv6 Research Foundation</h2>
 	
     <b> Abstract.</b> The long-running IPv6 Hitlist service is an important
@@ -375,8 +424,13 @@ source code, analysis tools, and data.
 
   <h2 id="reproduc">Reproducibility</h2>
 
+  <h4>Target Acquired? Evaluating Target Generation Algorithms for IPv6</h4>
+  We publish data and scripts to reproduce our analysis at the <a href="https://mediatum.ub.tum.de/1709953"> TUM university library</a> to guarantee long-term availability.
+
+  <br>
+  Dataset DOI: <a href="https://doi.org/10.14459/2023mp1709953">10.14459/2023mp1709953</a>
+
   <h4>Rusty Clusters? Dusting an IPv6 Research Foundation</h4>
-  <i> The dataset will be available soon </i>
   We publish data and scripts to reproduce our analysis at the <a href="https://mediatum.ub.tum.de/1686542"> TUM university library</a> to guarantee long-term availability.
 
   <br>
