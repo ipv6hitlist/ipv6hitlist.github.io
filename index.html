@@ -19,6 +19,9 @@
             padding-top: 4rem;
             margin-top: -2rem;
         }
+        h3 {
+            padding-top: 3rem;
+        }
         .topmargin {
             margin-top: 0rem;
         }
@@ -77,8 +80,12 @@
 
    <h2 id="hitlist">IPv6 Hitlist Service</h2>
 
-   We provide an IPv6 Hitlist Service where we publish <b>responsive IPv6 addresses, aliased prefixes, and non-aliased prefixes</b> to interested researchers.
+   We provide an IPv6 Hitlist Service where we publish <b>responsive IPv6 addresses, address categories, aliased prefixes, and non-aliased prefixes</b> to interested researchers.
    The IPv6 Hitlist Service consists of an openly accessible one and a registration-first service.
+
+   <h3>Hitlist addresses</h3>
+
+   This graph shows the development of the <b>full, aliased and non-aliased</b> hitlist over time.
 
    <br>
 
@@ -86,9 +93,13 @@
 
     <br>
 
-    <div id="plot-responsive" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <h3>Responsive addresses</h3>
 
-    The plot of responisve addresses is an updated version.
+    Here, the development of the <b>different protocol responses</b> over time is shown. We scan five different protocols, an additional graph shows the amount of IP addresses which respond to at least one of the protocols.
+
+    <div id="plot-responsive" style="min-width: 310px; height: 400px; margin: 0 auto"></div>    
+
+    The plot of responsive addresses is an updated version.
     We removed all responses to the UDP/53 scan injected by the Great Firewall of China.
     The original plot and additional information is provided here:
     <ul>
@@ -96,6 +107,29 @@
     </ul>
 
     We provide both filtered and unfiltered, historic UPD/53 files for registered users. 
+
+    <br>
+
+    <h3>Categorized addresses</h3>
+
+    Lastly, the <b>network categories</b> represented in the Hitlist can be seen.
+    Via the dropdown the categories represented in the hitlist, the total responsive addresses, or the responsive addresses per protocol may be chosen.
+    The categories are filtered with <a href="https://www.peeringdb.com/">PeeringDB</a>. For the details, see the <a href="#paper2023">2023 Paper</a>.
+    
+    <div style="text-align: center; padding-top: 30px;">
+        Select the data type:
+        <select id="categ_content_select">
+            <option selected="selected">Responsive Adresses</option>
+            <option>Hitlist Adresses</option>
+            <option>TCP/80 Responsive</option>
+            <option>TCP/443 Responsive</option>
+            <option>UDP/53 Responsive</option>
+            <option>UDP/443 Responsive</option>
+            <option>ICMP Responsive</option>
+        </select>
+    </div>
+
+    <div id="plot-categories" style="min-width: 310px; height: 400px; margin: 0 auto; padding-top: 20px"></div>
 
     <h4>Openly Accessible Service</h4>
 
@@ -473,6 +507,7 @@ Dataset DOI: <a href="https://dx.doi.org/10.14459/2018mp1452739">10.14459/2018mp
 <h2 id="contact">Contact</h2>
     <b><a href="https://olivergasser.net/">Oliver Gasser</a></b>: <b>oliver.gasser</b> [AT] <b>mpi-inf.mpg.de</b><br>
     <b><a href="https://www.net.in.tum.de/members/zirngibl/">Johannes Zirngibl</a></b>: <b>zirngibl</b> [AT] <b>net.in.tum.de</b>
+    <b><a href="https://www.net.in.tum.de/members/stegerl/">Lion Steger</a></b>: <b>stegerl</b> [AT] <b>net.in.tum.de</b>
 
 <h2 id="partners">Partners</h2>
 
@@ -541,6 +576,29 @@ Dataset DOI: <a href="https://dx.doi.org/10.14459/2018mp1452739">10.14459/2018mp
 			thousandsSep: ','
 		}
 	});
+
+    var cat_datasets = [0, 0, 0, 0, 0, 0, 0]
+    $.getJSON('categ_responsive.json', function (chart) {
+		cat_datasets[0] = chart;
+        Highcharts.chart('plot-categories', cat_datasets[0]);
+	});
+    $.getJSON('categ_input.json', function (chart) {
+		cat_datasets[1] = chart;
+	});
+    ["tcp80", "tcp443", "udp53", "udp443", "icmp"].forEach((proto, ind) => {
+        $.getJSON('categ_responsive_' + proto + '.json', function (chart) {
+            console.log(proto);
+	    	cat_datasets[ind + 2] = chart;
+	    });
+    })
+
+    var categ_content_select = document.getElementById("categ_content_select");
+    categ_content_select.selectedIndex = 0;
+    categ_content_select.addEventListener("change", function () {
+        var selInd = categ_content_select.selectedIndex;
+        console.log(selInd);
+        Highcharts.chart('plot-categories', cat_datasets[selInd]);
+    });
 
 	// Get the CSV and create the chart
 	$.getJSON('input.json', function (chart) {
