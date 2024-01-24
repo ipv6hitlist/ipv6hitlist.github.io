@@ -3673,6 +3673,10 @@
         [
           1704538800000, 
           1321940839
+        ], 
+        [
+          1705230000000, 
+          1376338485
         ]
       ], 
       "id": "all", 
@@ -7328,6 +7332,10 @@
         [
           1704538800000, 
           818911297
+        ], 
+        [
+          1705230000000, 
+          847536987
         ]
       ], 
       "id": "nonaliased", 
@@ -10983,6 +10991,10 @@
         [
           1704538800000, 
           345735739
+        ], 
+        [
+          1705230000000, 
+          371512374
         ]
       ], 
       "id": "aliased", 
@@ -11023,6 +11035,11 @@
           "text": "Addition of new address candidates from passive sources and target generation methods", 
           "title": "E", 
           "x": 1658354400000
+        }, 
+        {
+          "text": "Addition of ipinfo.io as external data provider", 
+          "title": "F", 
+          "x": 1701471600000
         }
       ], 
       "name": "Event", 
