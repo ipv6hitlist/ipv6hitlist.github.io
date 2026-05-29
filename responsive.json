@@ -24505,7 +24505,12 @@
           "text": "Re-evaluation of addresses filtered after being 30-days unresponsive",
           "title": "I",
           "x": 1708729200000
-        }
+        },
+	{
+	  "text": "Addition of the IPv6 Subnet-Router Anycast (SRA) Dataset from TU Dresden",
+	  "title": "J",
+	  "x": 1778536800000
+	}
       ],
       "name": "Event",
       "onSeries": "total",
