@@ -48,9 +48,9 @@
 <body>
 
     <!-- Put nav into container to center it on the page -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-xxl navbar-light bg-light fixed-top">
       <div class="container">
-      <a class="navbar-brand" href="#">↑</a>
+      <a class="navbar-brand" href="#" title="Back to top" aria-label="Back to top">↑</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -75,18 +75,15 @@
     <div class="container">
 
 
-	<h2 class="topmargin">Understanding and Unbiasing IPv6 Hitlists</h2>
-
-    On this website we present additional information about our IMC papers <i>"Clusters in the Expanse: Understanding and Unbiasing IPv6 Hitlists"</i> and <i>"Rusty Clusters? Dusting an IPv6 Research Foundation"</i>, and provide access to our IPv6 Hitlist Service.
-
-   <h2 id="hitlist">IPv6 Hitlist Service</h2>
+   <h2 id="hitlist" class="topmargin">IPv6 Hitlist Service</h2>
 
    We provide an IPv6 Hitlist Service where we publish <b>responsive IPv6 addresses, address categories, aliased prefixes, and non-aliased prefixes</b> to interested researchers.
-   The IPv6 Hitlist Service consists of an openly accessible one and a registration-first service.
+   The service has two tiers: an openly accessible service and a registration-first service that provides additional data.
 
    <h3>Hitlist addresses</h3>
 
-   This graph shows the development of the <b>full, aliased and non-aliased</b> hitlist over time.
+   This graph shows how the <b>full hitlist</b> and its <b>aliased and non-aliased</b> parts have grown over time.
+   Hover over the lettered markers for details on events that affected the hitlist.
 
    <br>
 
@@ -96,32 +93,32 @@
 
     <h3>Responsive addresses</h3>
 
-    Here, the development of the <b>different protocol responses</b> over time is shown. We scan five different protocols, an additional graph shows the amount of IP addresses which respond to at least one of the protocols.
+    This graph shows the number of <b>responsive addresses per protocol</b> over time.
+    We scan five protocols (ICMPv6, TCP/80, TCP/443, UDP/53, and UDP/443); the "Total responsive" line counts addresses that respond to at least one of them.
 
     <div id="plot-responsive" style="min-width: 310px; height: 400px; margin: 0 auto"></div>    
 
-    The plot of responsive addresses is an updated version.
-    We removed all responses to the UDP/53 scan injected by the Great Firewall of China.
-    The original plot and additional information is provided here:
+    This plot excludes all UDP/53 responses injected by the Great Firewall of China.
+    The original, unfiltered plot and more details are available here:
     <ul>
         <li><a href="gfw-filter/">Great Firewall of China Hitlist Filter</a></li>
     </ul>
 
-    We provide both filtered and unfiltered, historic UPD/53 files for registered users. 
+    Registered users can access both filtered and unfiltered historical UDP/53 files.
 
     <br>
 
     <h3>Categorized addresses</h3>
 
-    Lastly, the <b>network categories</b> represented in the Hitlist can be seen.
-    Via the dropdown the categories represented in the hitlist, the total responsive addresses, or the responsive addresses per protocol may be chosen.
-    The categories are filtered with <a href="https://www.peeringdb.com/">PeeringDB</a>. For the details, see the <a href="#paper2023">2023 Paper</a>.
+    Finally, this graph shows the <b>network categories</b> of hitlist addresses.
+    Use the dropdown to switch between all hitlist addresses, all responsive addresses, and responsive addresses per protocol.
+    Categories are derived from <a href="https://www.peeringdb.com/">PeeringDB</a>; see our <a href="#paper2023">TMA 2023 paper</a> for details.
     
     <div style="text-align: center; padding-top: 30px;">
         Select the data type:
         <select id="categ_content_select">
-            <option selected="selected">Responsive Adresses</option>
-            <option>Hitlist Adresses</option>
+            <option selected="selected">Responsive Addresses</option>
+            <option>Hitlist Addresses</option>
             <option>TCP/80 Responsive</option>
             <option>TCP/443 Responsive</option>
             <option>UDP/53 Responsive</option>
@@ -132,7 +129,7 @@
 
     <div id="plot-categories" style="min-width: 310px; height: 400px; margin: 0 auto; padding-top: 20px"></div>
 
-    <h4>Openly Accessible Service</h4>
+    <h3>Openly Accessible Service</h3>
 
     You can use the weekly generated list of responsive IPv6 addresses, aliased prefixes, and non-aliased prefixes without registration:
 
@@ -147,7 +144,7 @@
     Please see the <a href="#apd-lpm">notes about aliased prefixes</a> below to make use of them.
 
 
-    <h4>Registration-First Service</h4>
+    <h3>Registration-First Service</h3>
 
     We provide additional data which can be used to conduct in-depth research on IPv6 networks and addresses.
     This includes:
@@ -160,12 +157,12 @@
 
     To get <b>free access</b> to this registration-first service, you can send a quick
 <a href="mailto:data-request@net.in.tum.de?subject=Access%20to%20IPv6%20Hitlist%20Service&amp;body=Hi,%0A%0A%20please%20grant%20me%20access%20to%20the%20IPv6%20Hitlist%20Service.%20My%20name%20is%20YOURNAMEHERE,%20my%20affiliation%20is%20CHANGEME%20and%20I%20want%20to%20use%20the%20data%20for%20FILLTHIS.%20%0A%0AThank%20you,%20kind%20regards">registration email</a>.
-     We use the gathered data for statistical purposes and might very occasionally send a survey or other requests for feedback.
+     We use the information you provide for statistical purposes and may occasionally contact you with a survey or other request for feedback.
 
 
-     <h4>Referencing the Hitlist Service</h4>
+    <h3>Referencing the Hitlist Service</h3>
 
-    If you are using data from the IPv6 Hitlist Service in your publication, please refer to it with the following references:
+    If you are using data from the IPv6 Hitlist Service in your publication, please cite the following papers:
 
     <br>
 
@@ -181,7 +178,7 @@
         &nbsp;&nbsp;    doi = {10.1145/3278532.3278564},<br>
         &nbsp;&nbsp;    publisher = {ACM},<br>
         &nbsp;&nbsp;    address = {New York, NY, USA},<br>
-            }
+        }
     </code>
     </small>
 
@@ -210,19 +207,21 @@
         &nbsp;&nbsp;    year = {2023},<br>
         &nbsp;&nbsp;    month = jun,<br>
         &nbsp;&nbsp;    location = {Naples, Italy},<br>
-        &nbsp;&nbsp;    publisher = {},<br>
+        &nbsp;&nbsp;    doi = {10.23919/TMA58422.2023.10199073},<br>
+        &nbsp;&nbsp;    publisher = {IEEE},<br>
         }
     </code>
     </small>
 
 
     <p>
-    The same reference applies to the open and registered service. <b><a href="gasser2018clusters.bib">[bib]</a>, <a href="zirngibl2022rustyclusters.bib">[bib]</a> and <a href="steger2023targetacquired.bib">[bib]</a></b>
+    The same references apply to both the open and the registration-first service. <b><a href="gasser2018clusters.bib">[IMC 2018 bib]</a>, <a href="zirngibl2022rustyclusters.bib">[IMC 2022 bib]</a> and <a href="steger2023targetacquired.bib">[TMA 2023 bib]</a></b>
+    </p>
 
 
     <h2 id="tools">Software and Tools</h2>
 
-    During our IPv6 hitlist analysis we developed software to analyze and understand IPv6 hitlist.
+    During our IPv6 hitlist analysis we developed software to analyze and understand IPv6 hitlists.
     We publish the following software and tools for use by the scientific community:
 
     <ul>
@@ -233,7 +232,7 @@
         <li><a href="#entropy-ip-reimp">New Entropy/IP Generator</a></li>
         <li><a href="#apd-lpm">Longest prefix matching for aliased prefixes</a></li>
         <li><a href="#distance-clustering">Distance Clustering</a></li>
-        <li><a href="#gfw-filter"> GFW filter</a></li>
+        <li><a href="#gfw-filter">GFW filter</a></li>
     </ul>
 
     <h4 id="zmapv6">ZMapv6</h4>
@@ -244,7 +243,7 @@
     <ul>
         <li>ICMPv6 Echo Request</li>
         <li>IPv6 TCP SYN (any port)</li>
-        <li>IPV6 UDP (any port and payload)</li>
+        <li>IPv6 UDP (any port and payload)</li>
     </ul>
 
     ZMapv6 can read IPv6 target addresses from a file or from standard input.
@@ -268,7 +267,7 @@
 
     <h4 id="entropy-clustering">Entropy Clustering</h4>
 
-    Entropy Clustering is a software to find and visualize clusters in IPv6 addressing schemes.
+    Entropy Clustering is a tool to find and visualize clusters in IPv6 addressing schemes.
 
     <br>
 
@@ -277,8 +276,8 @@
 
     <h4 id="entropy-ip">Entropy/IP</h4>
 
-    Entropy/IP is a software to find patterns in IPv6 addresses and generate addresses based on these patterns.
-    Entropy/IP was presented during the 2016 Internet Measurement Conference.
+    Entropy/IP is a tool to find patterns in IPv6 addresses and generate addresses based on these patterns.
+    Entropy/IP was presented at the 2016 Internet Measurement Conference.
     For more information see the <a href="http://www.entropy-ip.com/">Entropy/IP website</a>.
 
     The Entropy/IP software is published by Akamai.
@@ -315,13 +314,13 @@
     <h4 id="distance-clustering">Distance Clustering</h4>
     This method generates IPv6 address candidates from a seed list.
     It extends more densely clustered address regions that show high entropy in the last nibble(s) of the address.
-    Note, these regions are not fully responsive but only densely populated.
+    Note that these regions are densely populated, not necessarily fully responsive.
     <br>
 
-    Python source: <a href="distance-clustering/"> distance-clustering</a>
+    Python source: <a href="distance-clustering/">distance-clustering</a>
 
-    <h4 id="gfw-filter">GFW filer</h4>
-    We provide a script to filter the output of UDP/53 scans from the impact of the GFW.
+    <h4 id="gfw-filter">GFW filter</h4>
+    We provide a script that removes responses injected by the Great Firewall of China (GFW) from UDP/53 scan results.
 
     <br>
     Python source: <a href="gfw-filter/filter_gfw.py">filter_gfw.py</a>
@@ -351,7 +350,7 @@
     under various conditions and find generated addresses to show
     vastly differing responsiveness levels for different TGAs.
     <br>
-    <b>Paper. </b> Read the final version of our paper here: <b><a href="http://www.net.in.tum.de/fileadmin/bibtex/publications/papers/steger2023targetacquired.pdf">[PDF]</a></b>
+    <b>Paper. </b> Read the final version of our paper here: <b><a href="https://www.net.in.tum.de/fileadmin/bibtex/publications/papers/steger2023targetacquired.pdf">[PDF]</a></b>
     <br>
 
     <b>Authors.</b> 
@@ -389,7 +388,7 @@
     accounts for an increase by 174% and combined with the current IPv6 Hitlist,
     we identify 8.8M responsive addresses.
     <br>
-    <b>Paper. </b> Read the final version of our paper here: <b><a href="http://www.net.in.tum.de/fileadmin/bibtex/publications/papers/zirngibl2022rustyclusters.pdf">[PDF]</a></b>
+    <b>Paper. </b> Read the final version of our paper here: <b><a href="https://www.net.in.tum.de/fileadmin/bibtex/publications/papers/zirngibl2022rustyclusters.pdf">[PDF]</a></b>
     <br>
 
     <b>Authors.</b> 
@@ -426,8 +425,8 @@ source code, analysis tools, and data.
 	<br>
 
 
-    <b>Authors.</b> <a href="https://olivergasser.net/">Oliver Gasser</a>, <a href="https://www.net.in.tum.de/members/scheitle/">Quirin Scheitle</a>, <a href="http://www.foremski.pl/">Paweł Foremski</a>, <a href="https://drakkar.imag.fr/spip.php?auteur91">Qasim Lone</a>,
-    <a href="http://mkorczynski.com/">Maciej Korczyński</a>, <a href="https://sdstrowes.co.uk/">Stephen D. Strowes</a>, <a href="https://blog.luukhendriks.eu/">Luuk Hendriks</a>, <a href="https://www.net.in.tum.de/members/carle/">Georg Carle</a>.
+    <b>Authors.</b> <a href="https://olivergasser.net/">Oliver Gasser</a>, <a href="https://www.net.in.tum.de/members/scheitle/">Quirin Scheitle</a>, <a href="https://www.foremski.pl/">Paweł Foremski</a>, <a href="https://labs.ripe.net/author/qasim-lone/">Qasim Lone</a>,
+    <a href="https://mkorczynski.com/">Maciej Korczyński</a>, <a href="https://sdstrowes.co.uk/">Stephen D. Strowes</a>, Luuk Hendriks, <a href="https://www.net.in.tum.de/members/carle/">Georg Carle</a>.
 
 
     <h4>Additional Plots</h4>
@@ -460,39 +459,40 @@ source code, analysis tools, and data.
   <h2 id="reproduc">Reproducibility</h2>
 
   <h4>Target Acquired? Evaluating Target Generation Algorithms for IPv6</h4>
-  We publish data and scripts to reproduce our analysis at the <a href="https://mediatum.ub.tum.de/1709953"> TUM university library</a> to guarantee long-term availability.
+  We publish data and scripts to reproduce our analysis at the <a href="https://mediatum.ub.tum.de/1709953">TUM University Library</a> to guarantee long-term availability.
 
   <br>
   Dataset DOI: <a href="https://doi.org/10.14459/2023mp1709953">10.14459/2023mp1709953</a>
 
-  <p style="color: red; margin-top: 15px">NOTE: The dataset is missing some scripts needed for the reproducibility</p> Please find the scripts, without the data, in our <a href="https://github.com/tumi8/tma-23-target-generation"> GitHub repository</a>
+  <p style="color: red; margin-top: 15px; margin-bottom: 0">Note: The dataset is missing some scripts required to reproduce our results.</p>
+  These scripts (without the data) are available in our <a href="https://github.com/tumi8/tma-23-target-generation">GitHub repository</a>.
 
   <h4>Rusty Clusters? Dusting an IPv6 Research Foundation</h4>
-  We publish data and scripts to reproduce our analysis at the <a href="https://mediatum.ub.tum.de/1686542"> TUM university library</a> to guarantee long-term availability.
+  We publish data and scripts to reproduce our analysis at the <a href="https://mediatum.ub.tum.de/1686542">TUM University Library</a> to guarantee long-term availability.
 
   <br>
-  Dataset DOI: <a href="https://doi.org/10.14459/2022mp1686542">10.14459/2022mp1686542 </a>
+  Dataset DOI: <a href="https://doi.org/10.14459/2022mp1686542">10.14459/2022mp1686542</a>
 
   <h4>Clusters in the Expanse: Understanding and Unbiasing IPv6 Hitlists</h4>
 We publish data and scripts to reproduce our analysis at the
-<a href="https://mediatum.ub.tum.de/1452739">TUM university library</a> to guarantee long-term availability.
+<a href="https://mediatum.ub.tum.de/1452739">TUM University Library</a> to guarantee long-term availability.
 
 <br>
 
-Dataset DOI: <a href="https://dx.doi.org/10.14459/2018mp1452739">10.14459/2018mp1452739</a>
+Dataset DOI: <a href="https://doi.org/10.14459/2018mp1452739">10.14459/2018mp1452739</a>
 
 <br>
   <p>
   <b>Reproducibility update 2019-04-10</b>
 
-  We update the requirements.txt file and provide additional information in the README.md file.
+  We updated the requirements.txt file and added more information to the README.md file.
   You can download the updated files from <a href="reproducibility-updates/2019-04-10/">this directory</a>.
 
   <br>
   <p>
   <b>SIGCOMM Artifacts Evaluation Badges</b>
 
-  We were awarded all three badges by the <a href="https://www.sigcomm.org/content/sigcomm-artifacts-evaluation-committee">SIGCOMM Artifacts Evaluation Committee</a> underlining that our published data and scripts are available, functional, and reusable.
+  We were awarded <a href="https://www.acm.org/publications/policies/artifact-review-and-badging-current">all three badges</a> by the SIGCOMM Artifacts Evaluation Committee, confirming that our published data and scripts are available, functional, and reusable.
 
 	<div class="row align-items-center">
         <div class="col-md-3">
@@ -516,7 +516,7 @@ Dataset DOI: <a href="https://dx.doi.org/10.14459/2018mp1452739">10.14459/2018mp
 
 	<div class="row align-items-center">
         <div class="col-md-3">
-			<a href="https://www.tum.de/nc/en/homepage/"><img src="logos/TUM_Logo_extern_mt_EN_RGB_p.png" alt="TUM logo" class="img-fluid"/></a>
+			<a href="https://www.tum.de/en/"><img src="logos/TUM_Logo_extern_mt_EN_RGB_p.png" alt="TUM logo" class="img-fluid"/></a>
 		</div>
 		<div class="col-md-3">
 			<a href="https://www.iitis.pl/en"><img src="logos/itis.png" alt="IITiS logo" class="img-fluid"/></a>
@@ -559,7 +559,7 @@ Dataset DOI: <a href="https://dx.doi.org/10.14459/2018mp1452739">10.14459/2018mp
 	</div>
 	<div class="row align-items-center">
 		<div class="col-md-3">
-			<a href="https://tu-dresden.de/ing/informatik/sya/netd"><img src="logos/tu-dresden.svg" alt="TU Dresden" class="img-fluid"/></a>
+			<a href="https://tu-dresden.de/ing/informatik/sya/netd"><img src="logos/tu-dresden.svg" alt="TU Dresden logo" class="img-fluid"/></a>
 		</div>
 	</div>
     <br><br>
@@ -609,7 +609,6 @@ Dataset DOI: <a href="https://dx.doi.org/10.14459/2018mp1452739">10.14459/2018mp
 	});
     ["tcp80", "tcp443", "udp53", "udp443", "icmp"].forEach((proto, ind) => {
         $.getJSON('categ_responsive_' + proto + '.json', function (chart) {
-            console.log(proto);
 	    	cat_datasets[ind + 2] = chart;
 	    });
     })
@@ -618,11 +617,13 @@ Dataset DOI: <a href="https://dx.doi.org/10.14459/2018mp1452739">10.14459/2018mp
     categ_content_select.selectedIndex = 0;
     categ_content_select.addEventListener("change", function () {
         var selInd = categ_content_select.selectedIndex;
-        console.log(selInd);
-        Highcharts.chart('plot-categories', cat_datasets[selInd]);
+        // Skip if the selected dataset has not finished loading yet
+        if (cat_datasets[selInd]) {
+            Highcharts.chart('plot-categories', cat_datasets[selInd]);
+        }
     });
 
-	// Get the CSV and create the chart
+	// Get the JSON chart definitions and create the charts
 	$.getJSON('input.json', function (chart) {
 		Highcharts.chart('plot-input', chart);
 	});
