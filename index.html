@@ -5,6 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Weekly lists of responsive IPv6 addresses, aliased and non-aliased prefixes for Internet measurement research.">
 
+    <!-- Light/dark mode: follows the system setting unless the visitor picked a
+         theme with the navbar toggle (remembered in this browser). Sets the
+         Bootstrap 5.3 color mode for the page, plus the matching Highcharts class
+         so the charts use the same theme. Runs before the CSS loads to avoid a
+         flash of the wrong theme. -->
+    <script>
+        var siteTheme = (function () {
+            var storageKey = 'ipv6hitlist-theme';
+            var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+            function systemTheme() {
+                return darkQuery.matches ? 'dark' : 'light';
+            }
+            function storedTheme() {
+                try {
+                    var value = localStorage.getItem(storageKey);
+                    return (value === 'light' || value === 'dark') ? value : null;
+                } catch (e) {
+                    return null;
+                }
+            }
+            function storeTheme(value) {
+                try {
+                    if (value) {
+                        localStorage.setItem(storageKey, value);
+                    } else {
+                        localStorage.removeItem(storageKey);
+                    }
+                } catch (e) {
+                    // Storage unavailable (e.g. private mode): the choice lasts for this page view only
+                }
+            }
+
+            var chosenTheme = storedTheme();
+
+            function current() {
+                return chosenTheme || systemTheme();
+            }
+            function apply() {
+                var theme = current();
+                var root = document.documentElement;
+                if (root.getAttribute('data-bs-theme') === theme) {
+                    return;
+                }
+                root.setAttribute('data-bs-theme', theme);
+                root.classList.toggle('highcharts-dark', theme === 'dark');
+                root.classList.toggle('highcharts-light', theme !== 'dark');
+                document.dispatchEvent(new Event('themechange'));
+            }
+            function toggle() {
+                var next = current() === 'dark' ? 'light' : 'dark';
+                // Picking the system's theme again goes back to following the system
+                chosenTheme = (next === systemTheme()) ? null : next;
+                storeTheme(chosenTheme);
+                apply();
+            }
+
+            apply();
+            darkQuery.addEventListener('change', apply);
+            return { current: current, toggle: toggle };
+        })();
+    </script>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
@@ -67,6 +130,63 @@
             height: 100%;
             object-fit: contain;
         }
+        /* Charts use the page background in both themes */
+        .highcharts-container {
+            --highcharts-background-color: var(--bs-body-bg);
+        }
+
+        /* Dark mode: many logos have dark text on a transparent background,
+           so show logos and badges on light tiles */
+        [data-bs-theme=dark] .logo-grid {
+            gap: 1.5rem 2rem;
+        }
+        [data-bs-theme=dark] .logo-grid a {
+            width: 194px;
+            height: 80px;
+            padding: 0.5rem 0.75rem;
+            background-color: #fff;
+            border-radius: 0.5rem;
+        }
+        [data-bs-theme=dark] .badge-row img {
+            border-radius: 0.75rem;
+        }
+
+        /* Light/dark toggle in the navbar: shows a moon in light mode, a sun in dark mode */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+            border: 0;
+            background: none;
+            line-height: 1;
+            color: var(--bs-navbar-color);
+        }
+        .theme-toggle:hover,
+        .theme-toggle:focus-visible {
+            color: var(--bs-navbar-hover-color);
+        }
+        .theme-toggle svg {
+            width: 1.1rem;
+            height: 1.1rem;
+        }
+        .theme-toggle .icon-sun,
+        [data-bs-theme=dark] .theme-toggle .icon-moon {
+            display: none;
+        }
+        [data-bs-theme=dark] .theme-toggle .icon-sun {
+            display: inline;
+        }
+
+        @media (max-width: 575.98px) {
+            [data-bs-theme=dark] .logo-grid {
+                gap: 1rem 0.25rem;
+            }
+            [data-bs-theme=dark] .logo-grid a {
+                width: 164px;
+                height: 72px;
+            }
+        }
+
         @media (max-width: 575.98px) {
             .badge-row {
                 gap: 1rem;
@@ -94,10 +214,14 @@
 <body>
 
     <!-- Put nav into container to center it on the page -->
-    <nav class="navbar navbar-expand-xl navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-xl bg-body-tertiary fixed-top">
       <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
+      </button>
+      <button type="button" class="theme-toggle order-xl-last ms-xl-2" id="theme-toggle" title="Switch to dark mode" aria-label="Dark mode" aria-pressed="false">
+        <svg class="icon-moon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/></svg>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav container">
@@ -691,6 +815,21 @@ Dataset DOI: <a href="https://doi.org/10.14459/2018mp1452739">10.14459/2018mp145
 });
 </script>
 
+<!-- Light/dark toggle -->
+<script>
+    (function () {
+        var button = document.getElementById('theme-toggle');
+        function updateButton() {
+            var dark = siteTheme.current() === 'dark';
+            button.setAttribute('aria-pressed', dark ? 'true' : 'false');
+            button.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+        }
+        button.addEventListener('click', siteTheme.toggle);
+        document.addEventListener('themechange', updateButton);
+        updateButton();
+    })();
+</script>
+
 <!-- Highchart plotting libs -->
 <script src="js/highcharts/highstock.js"></script>
 <script src="js/highcharts/exporting.js"></script>
@@ -706,10 +845,34 @@ Dataset DOI: <a href="https://doi.org/10.14459/2018mp1452739">10.14459/2018mp145
 		}
 	});
 
+    // The chart definitions use Highcharts' classic dark grey for some series,
+    // which is hard to see on a dark background, so lighten it in dark mode.
+    var shownCharts = {};  // container id -> chart definition currently shown
+
+    function drawChart(containerId, chart) {
+        shownCharts[containerId] = chart;
+        var options = JSON.parse(JSON.stringify(chart));
+        if (siteTheme.current() === 'dark') {
+            (options.series || []).forEach(function (series) {
+                if (series.color === '#434348') {
+                    series.color = '#d4d4d8';
+                }
+            });
+        }
+        Highcharts.chart(containerId, options);
+    }
+
+    // Redraw the charts when the page switches between light and dark
+    document.addEventListener('themechange', function () {
+        Object.keys(shownCharts).forEach(function (containerId) {
+            drawChart(containerId, shownCharts[containerId]);
+        });
+    });
+
     var cat_datasets = [0, 0, 0, 0, 0, 0, 0]
     $.getJSON('categ_responsive.json', function (chart) {
 		cat_datasets[0] = chart;
-        Highcharts.chart('plot-categories', cat_datasets[0]);
+        drawChart('plot-categories', cat_datasets[0]);
 	});
     $.getJSON('categ_input.json', function (chart) {
 		cat_datasets[1] = chart;
@@ -726,16 +889,16 @@ Dataset DOI: <a href="https://doi.org/10.14459/2018mp1452739">10.14459/2018mp145
         var selInd = categ_content_select.selectedIndex;
         // Skip if the selected dataset has not finished loading yet
         if (cat_datasets[selInd]) {
-            Highcharts.chart('plot-categories', cat_datasets[selInd]);
+            drawChart('plot-categories', cat_datasets[selInd]);
         }
     });
 
 	// Get the JSON chart definitions and create the charts
 	$.getJSON('input.json', function (chart) {
-		Highcharts.chart('plot-input', chart);
+		drawChart('plot-input', chart);
 	});
 	$.getJSON('responsive.json', function (chart) {
-		Highcharts.chart('plot-responsive', chart);
+		drawChart('plot-responsive', chart);
 	});
 </script>
 <!-- JS ENDS HERE -->
