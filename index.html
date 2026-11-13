@@ -32,6 +32,55 @@
         .navbar-nav .nav-link {
             white-space: nowrap;
         }
+
+        /* Artifact evaluation badges */
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .badge-row img {
+            width: 110px;
+            height: auto;
+        }
+
+        /* Partner and data provider logos: each logo is scaled to fit
+           the same box, so logos of different shapes look balanced */
+        .logo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2.5rem 3.5rem;
+            margin-top: 1.5rem;
+        }
+        .logo-grid a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 170px;
+            height: 64px;
+        }
+        .logo-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        @media (max-width: 575.98px) {
+            .badge-row {
+                gap: 1rem;
+            }
+            .badge-row img {
+                width: 90px;
+            }
+            .logo-grid {
+                gap: 2rem 1.5rem;
+            }
+            .logo-grid a {
+                width: 140px;
+                height: 56px;
+            }
+        }
     </style>
 
     <!-- Fork me on GitHub -->
@@ -589,17 +638,11 @@ Dataset DOI: <a href="https://doi.org/10.14459/2018mp1452739">10.14459/2018mp145
 
   We were awarded <a href="https://www.acm.org/publications/policies/artifact-review-and-badging-current">all three badges</a> by the SIGCOMM Artifacts Evaluation Committee, confirming that our published data and scripts are available, functional, and reusable.
 
-	<div class="row align-items-center">
-        <div class="col-md-3">
-			<img src="sigcommae/artifacts_available.jpg" alt="SIGCOMM Artifacts Evaluation available badge" class="img-fluid"/>
-		</div>
-		<div class="col-md-3">
-			<img src="sigcommae/artifacts_evaluated_functional.jpg" alt="SIGCOMM Artifacts Evaluation functional badge" class="img-fluid"/>
-		</div>
-		<div class="col-md-3">
-			<img src="sigcommae/artifacts_evaluated_reusable.jpg" alt="SIGCOMM Artifacts Evaluation reusable badge" class="img-fluid"/>
-		</div>
-	</div>
+    <div class="badge-row">
+        <img src="sigcommae/artifacts_available.jpg" alt="SIGCOMM Artifacts Evaluation available badge"/>
+        <img src="sigcommae/artifacts_evaluated_functional.jpg" alt="SIGCOMM Artifacts Evaluation functional badge"/>
+        <img src="sigcommae/artifacts_evaluated_reusable.jpg" alt="SIGCOMM Artifacts Evaluation reusable badge"/>
+    </div>
 
 
 <h2 id="contact">Contact</h2>
@@ -609,54 +652,24 @@ Dataset DOI: <a href="https://doi.org/10.14459/2018mp1452739">10.14459/2018mp145
 
 <h2 id="partners">Partners</h2>
 
-	<div class="row align-items-center">
-        <div class="col-md-3">
-			<a href="https://www.tum.de/en/"><img src="logos/TUM_Logo_extern_mt_EN_RGB_p.png" alt="TUM logo" class="img-fluid"/></a>
-		</div>
-		<div class="col-md-3">
-			<a href="https://www.iitis.pl/en"><img src="logos/itis.png" alt="IITiS logo" class="img-fluid"/></a>
-		</div>
-		<div class="col-md-3">
-			<a href="https://www.tudelft.nl/en/"><img src="logos/tudelft.jpg" alt="TU Delft logo" class="img-fluid"/></a>
-		</div>
-	</div>
-	<div class="row align-items-center">
-		<div class="col-md-3">
-			<a href="https://www.univ-grenoble-alpes.fr/en/"><img src="logos/logo-uga.png" alt="University Grenoble Alpes logo" class="img-fluid"/></a>
-		</div>
-		<div class="col-md-3">
-			<a href="https://www.ripe.net/"><img src="logos/RIPE_NCC_Logo2015.png" alt="RIPE NCC logo" class="img-fluid"/></a>
-		</div>
-        <div class="col-md-3">
-            <a href="https://www.utwente.nl/en/"><img src="logos/UTEN.png" alt="UTwente logo" class="img-fluid"/></a>
-		</div>
-	</div>
-    <div class="row align-items-center">
-        <div class="col-md-3">
-        </div>
-        <div class="col-md-3">
-            <a href="https://www.mpi-inf.mpg.de/home"><img src="logos/logo_mpi.png" alt="MPI logo" class="img-fluid"/></a>
-        </div>
+    <div class="logo-grid">
+        <a href="https://www.tum.de/en/"><img src="logos/TUM_Logo_extern_mt_EN_RGB_p.png" alt="TUM logo"/></a>
+        <a href="https://www.iitis.pl/en"><img src="logos/itis.png" alt="IITiS logo"/></a>
+        <a href="https://www.tudelft.nl/en/"><img src="logos/tudelft.jpg" alt="TU Delft logo"/></a>
+        <a href="https://www.univ-grenoble-alpes.fr/en/"><img src="logos/logo-uga.png" alt="University Grenoble Alpes logo"/></a>
+        <a href="https://www.ripe.net/"><img src="logos/RIPE_NCC_Logo2015.png" alt="RIPE NCC logo"/></a>
+        <a href="https://www.utwente.nl/en/"><img src="logos/UTEN.png" alt="UTwente logo"/></a>
+        <a href="https://www.mpi-inf.mpg.de/home"><img src="logos/logo_mpi.png" alt="MPI logo"/></a>
     </div>
 
 <h2 id="data-providers">External Data Providers</h2>
 
-	<div class="row align-items-center">
-	        <div class="col-md-3">
-			<a href="https://ipinfo.io"><img src="logos/ipinfo.svg" alt="IPinfo logo" class="img-fluid"/></a>
-		</div>
-		<div class="col-md-3">
-			<a href="https://opendata.rapid7.com/"><img src="logos/rapid7.png" alt="Rapid7 logo" class="img-fluid"/></a>
-		</div>
-		<div class="col-md-3">
-			<a href="https://atlas.ripe.net/"><img src="logos/ripeatlas.png" alt="RIPE Atlas logo" class="img-fluid"/></a>
-		</div>
-	</div>
-	<div class="row align-items-center">
-		<div class="col-md-3">
-			<a href="https://tu-dresden.de/ing/informatik/sya/netd"><img src="logos/tu-dresden.svg" alt="TU Dresden logo" class="img-fluid"/></a>
-		</div>
-	</div>
+    <div class="logo-grid">
+        <a href="https://ipinfo.io"><img src="logos/ipinfo.svg" alt="IPinfo logo"/></a>
+        <a href="https://opendata.rapid7.com/"><img src="logos/rapid7.png" alt="Rapid7 logo"/></a>
+        <a href="https://atlas.ripe.net/"><img src="logos/ripeatlas.png" alt="RIPE Atlas logo"/></a>
+        <a href="https://tu-dresden.de/ing/informatik/sya/netd"><img src="logos/tu-dresden.svg" alt="TU Dresden logo"/></a>
+    </div>
     <br><br>
 
 </div> <!-- /container -->
