@@ -60,11 +60,12 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav container">
           <a class="nav-item nav-link" href="#hitlist">IPv6 Hitlist Service</a>
-          <a class="nav-item nav-link" href="#tools">Software and Tools</a>
+          <a class="nav-item nav-link" href="#tools">Tools</a>
           <a class="nav-item nav-link" href="#paper2026">CCR 2026</a>
           <a class="nav-item nav-link" href="#paper2023">TMA 2023</a>
           <a class="nav-item nav-link" href="#paper2022">IMC 2022</a>
           <a class="nav-item nav-link" href="#paper2018">IMC 2018</a>
+          <a class="nav-item nav-link" href="#paper2016">TMA 2016</a>
           <a class="nav-item nav-link" href="#reproduc">Reproducibility</a>
           <a class="nav-item nav-link" href="#contact">Contact</a>
           <a class="nav-item nav-link" href="#partners">Partners</a>
@@ -172,6 +173,19 @@
 
     <small>
     <code>
+        @inproceedings{gasser2016ipv6scanning,<br>
+        &nbsp;&nbsp;    title = {Scanning the IPv6 Internet: Towards a Comprehensive Hitlist},<br>
+        &nbsp;&nbsp;    author = {Gasser, Oliver and Scheitle, Quirin and Gebhard, Sebastian and Carle, Georg},<br>
+        &nbsp;&nbsp;    booktitle = {Proc. of 8th Int. Workshop on Traffic Monitoring and Analysis},<br>
+        &nbsp;&nbsp;    year = {2016},<br>
+        &nbsp;&nbsp;    month = apr,<br>
+        &nbsp;&nbsp;    address = {Louvain-la-Neuve, Belgium},<br>
+        }
+    </code>
+    </small>
+
+    <small>
+    <code>
         @inproceedings{gasser2018clusters,<br>
         &nbsp;&nbsp;    title = {Clusters in the Expanse: Understanding and Unbiasing IPv6 Hitlists},<br>
         &nbsp;&nbsp;    author = {Gasser, Oliver and Scheitle, Quirin and Foremski, Pawel and Lone, Qasim and Korczynski, Maciej and Strowes, Stephen D. and Hendriks, Luuk and Carle, Georg},<br>
@@ -237,7 +251,7 @@
 
 
     <p>
-    The same references apply to both the open and the registration-first service. <b><a href="gasser2018clusters.bib">[IMC 2018 bib]</a>, <a href="zirngibl2022rustyclusters.bib">[IMC 2022 bib]</a>, <a href="steger2023targetacquired.bib">[TMA 2023 bib]</a> and <a href="gasser2026lessonslearned.bib">[CCR 2026 bib]</a></b>
+    The same references apply to both the open and the registration-first service. <b><a href="gasser2016ipv6scanning.bib">[TMA 2016 bib]</a>, <a href="gasser2018clusters.bib">[IMC 2018 bib]</a>, <a href="zirngibl2022rustyclusters.bib">[IMC 2022 bib]</a>, <a href="steger2023targetacquired.bib">[TMA 2023 bib]</a> and <a href="gasser2026lessonslearned.bib">[CCR 2026 bib]</a></b>
     </p>
 
 
@@ -507,6 +521,35 @@ source code, analysis tools, and data.
     <ul>
         <li><a href="probing/">Responsiveness over time for each protocol and source</a></li>
     </ul>
+
+    <h2 id="paper2016">Scanning the IPv6 Internet: Towards a Comprehensive Hitlist</h2>
+
+    <b>Abstract.</b> Active network measurements constitute an important part
+    in gaining a better understanding of the Internet. Although IPv4-wide scans
+    are now easily possible, random active probing is infeasible in the IPv6
+    Internet. Therefore, we propose a hybrid approach to generate a hitlist of
+    IPv6 addresses for scanning: First, we extract IPv6 addresses from passive
+    flow data. Second, we leverage publicly available resources such as rDNS
+    data to gather further IPv6 addresses. Third, we conduct traceroute
+    measurements from several vantage points to obtain additional addresses. We
+    perform multiple active measurements on gathered IPv6 addresses and
+    evaluate response rates over time. We extensively compare all IPv6 address
+    sources. In total we found 150M unique IPv6 addresses over the course of
+    four weeks. Our hitlist covers 72% of announced prefixes and 84% of
+    Autonomous Systems. Finally, we give concrete recommendations to maximize
+    source efficiency for different scan types.
+    <br>
+    <b>Paper.</b> The paper appeared at <a href="https://tma.ifip.org/2016/">TMA 2016</a>.
+    Read an extended version at arXiv.org:
+    <b><a href="https://arxiv.org/abs/1607.05179">[abstract]</a></b> and
+    <b><a href="https://arxiv.org/pdf/1607.05179">[PDF]</a></b>.
+    <br>
+
+    <b>Authors.</b>
+    <a href="https://olivergasser.net/">Oliver Gasser</a>,
+    <a href="https://www.net.in.tum.de/members/scheitle/">Quirin Scheitle</a>,
+    Sebastian Gebhard,
+    <a href="https://www.net.in.tum.de/members/carle/">Georg Carle</a>.
 
   <h2 id="reproduc">Reproducibility</h2>
 
